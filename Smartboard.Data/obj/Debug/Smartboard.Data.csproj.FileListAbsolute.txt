@@ -1,0 +1,4 @@
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Data\bin\Debug\Smartboard.Data.dll
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Data\bin\Debug\Smartboard.Data.pdb
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Data\obj\Debug\Smartboard.Data.dll
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Data\obj\Debug\Smartboard.Data.pdb

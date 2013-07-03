@@ -1,0 +1,11 @@
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.UI.exe.config
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.UI.exe
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.UI.pdb
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.Business.dll
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.Business.pdb
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.csprojResolveAssemblyReference.cache
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Windows.MainWindow.resources
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Properties.Resources.resources
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.csproj.GenerateResource.Cache
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.exe
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.pdb
