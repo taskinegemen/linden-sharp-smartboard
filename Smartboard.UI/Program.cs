@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Smartboard.UI.Windows;
+using Smartboard.UI.Views;
 
 namespace Smartboard.UI
 {
@@ -17,7 +17,7 @@ namespace Smartboard.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            Application.Run(new MainView());
         }
     }
 }
