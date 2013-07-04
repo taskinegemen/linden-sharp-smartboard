@@ -33,6 +33,7 @@
             // 
             // lytPictures
             // 
+            this.lytPictures.AutoScroll = true;
             this.lytPictures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytPictures.Location = new System.Drawing.Point(0, 0);
             this.lytPictures.Name = "lytPictures";
@@ -43,6 +44,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(527, 364);
             this.Controls.Add(this.lytPictures);
             this.Name = "MainView";

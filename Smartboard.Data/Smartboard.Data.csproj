@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Page.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
     <Compile Include="Common\Repository.cs" />
     <Compile Include="Entities\Book.cs" />

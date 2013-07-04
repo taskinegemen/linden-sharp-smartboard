@@ -37,6 +37,11 @@ namespace Smartboard.UI.Views
 
         #region private methods
 
+        private Book GetBook(int bookId)
+        {
+            return this.books.Find(b => b.Id == bookId);
+        }
+
         #endregion
 
         #region event handlers
@@ -70,13 +75,12 @@ namespace Smartboard.UI.Views
         private void bookClick(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
-
-            BookView bookView = new BookView(pictureBox.Name);
+            Book book = this.GetBook(int.Parse(pictureBox.Name));
+            BookView bookView = new BookView(book);
             bookView.Show();
         }
         
         #endregion event handlers
         
-
     }
 }
