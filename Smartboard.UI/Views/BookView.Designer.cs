@@ -32,9 +32,12 @@
             this.imgLstPages = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lstImages = new System.Windows.Forms.ListView();
+            this.picBoxPage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPage)).BeginInit();
             this.SuspendLayout();
             // 
             // imgLstPages
@@ -53,6 +56,11 @@
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.lstImages);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.Controls.Add(this.picBoxPage);
             this.splitContainer1.Size = new System.Drawing.Size(611, 392);
             this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
@@ -70,6 +78,16 @@
             this.lstImages.Size = new System.Drawing.Size(150, 392);
             this.lstImages.TabIndex = 0;
             this.lstImages.UseCompatibleStateImageBehavior = false;
+            this.lstImages.Click += new System.EventHandler(this.GetPage);
+            // 
+            // picBoxPage
+            // 
+            this.picBoxPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBoxPage.Location = new System.Drawing.Point(0, 0);
+            this.picBoxPage.Name = "picBoxPage";
+            this.picBoxPage.Size = new System.Drawing.Size(457, 392);
+            this.picBoxPage.TabIndex = 0;
+            this.picBoxPage.TabStop = false;
             // 
             // BookView
             // 
@@ -84,8 +102,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.GetPages);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,5 +115,6 @@
         private System.Windows.Forms.ImageList imgLstPages;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView lstImages;
+        private System.Windows.Forms.PictureBox picBoxPage;
     }
 }

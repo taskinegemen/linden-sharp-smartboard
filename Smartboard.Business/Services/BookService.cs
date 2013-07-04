@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Smartboard.Data.Repositories;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Smartboard.Business.Services
 {
@@ -37,6 +38,26 @@ namespace Smartboard.Business.Services
             }
 
             return pages;
+        }
+
+        public Page GetPage(int bookId, int pageId)
+        {
+            Page page = new Page();
+
+            using (StreamReader reader 
+                = new StreamReader(@"C:\json\pages\" + bookId.ToString() + @"\" + pageId.ToString() + ".json"))
+            {
+                string json = reader.ReadToEnd();
+
+                page = JsonConvert.DeserializeObject<Page>(json);
+                page.ImagePath = @"C:\json\pages\" + bookId.ToString() + @"\" + pageId.ToString() + ".jpg";
+            }
+            if (page == null)
+            {
+                throw new BusinessException("Hata oluştu.");
+            }
+
+            return page;
         }
 
     }

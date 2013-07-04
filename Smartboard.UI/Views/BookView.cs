@@ -18,11 +18,13 @@ namespace Smartboard.UI.Views
 
         private BookViewPresenter presenter;
         private Book book;
-        private List<Page> pages;
 
         #endregion
 
         #region public members
+
+        public List<Page> Pages;
+
         #endregion
 
         #region public methods
@@ -30,7 +32,7 @@ namespace Smartboard.UI.Views
         public BookView()
         {
             InitializeComponent();
-            this.presenter = new BookViewPresenter();
+            this.presenter = new BookViewPresenter(this);
         }
 
         public BookView(Book book)
@@ -51,7 +53,7 @@ namespace Smartboard.UI.Views
 
         private void GetPages(object sender, EventArgs e)
         {
-            this.pages = this.presenter.GetPages(this.book.Id);
+            this.Pages = this.presenter.GetPages(this.book.Id);
 
             this.lstImages.View = View.LargeIcon;  
             this.imgLstPages.ImageSize = new Size(150, 210);
@@ -61,7 +63,7 @@ namespace Smartboard.UI.Views
             //this.lstImages.Scrollable = true;
             //this.lstImages.HeaderStyle = ColumnHeaderStyle.None;
 
-            foreach (Page page in this.pages)
+            foreach (Page page in this.Pages)
             {
                 this.imgLstPages.Images.Add(Image.FromFile(page.ThumbnailPath));
             }
@@ -76,19 +78,28 @@ namespace Smartboard.UI.Views
             {
                 ListViewItem item = new ListViewItem();
                 item.ImageIndex = i;
+                item.Name = (i + 1).ToString();
                 item.Text = "sayfa " + i.ToString();
 
                 this.lstImages.Items.Add(item);
             }
         }
 
-        #endregion
-
-        private void GetPages()
+        private void GetPage(object sender, EventArgs e)
         {
+            ListViewItem item = this.lstImages.SelectedItems[0];
 
+            Page page = this.presenter.GetPage(this.book.Id, int.Parse(item.Name));
+
+            this.picBoxPage.Width = page.Width;
+            this.picBoxPage.Height = page.Height;
+
+
+            this.picBoxPage.Image = Image.FromFile(page.ImagePath);
+            this.picBoxPage.Size = this.picBoxPage.Image.Size;
         }
 
+        #endregion
 
     }
 }
