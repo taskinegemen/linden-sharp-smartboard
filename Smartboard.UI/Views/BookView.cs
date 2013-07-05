@@ -101,5 +101,13 @@ namespace Smartboard.UI.Views
 
         #endregion
 
+        private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+
+            this.picBoxPage.Size = panel.Size;
+            
+        }
+
     }
 }

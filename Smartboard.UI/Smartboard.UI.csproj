@@ -46,6 +46,15 @@
   <ItemGroup>
     <Compile Include="Presenters\BookViewPresenter.cs" />
     <Compile Include="Presenters\MainViewPresenter.cs" />
+    <Compile Include="ToolBoxItems\ImageBox\ImageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToolBoxItems\ImageBox\ImageBox.designer.cs">
+      <DependentUpon>ImageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolBoxItems\ImageBox\ImageBoxBorderStyle.cs" />
+    <Compile Include="ToolBoxItems\ImageBox\ImageBoxGridDisplayMode.cs" />
+    <Compile Include="ToolBoxItems\ImageBox\ImageBoxGridScale.cs" />
     <Compile Include="Views\BookView.cs">
       <SubType>Form</SubType>
     </Compile>

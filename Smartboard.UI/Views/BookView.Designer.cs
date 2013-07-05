@@ -32,12 +32,11 @@
             this.imgLstPages = new System.Windows.Forms.ImageList(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lstImages = new System.Windows.Forms.ListView();
-            this.picBoxPage = new System.Windows.Forms.PictureBox();
+            this.picBoxPage = new Smartboard.ToolBoxItems.ImageBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPage)).BeginInit();
             this.SuspendLayout();
             // 
             // imgLstPages
@@ -61,6 +60,7 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.Controls.Add(this.picBoxPage);
+            this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.splitContainer1.Size = new System.Drawing.Size(611, 392);
             this.splitContainer1.SplitterDistance = 150;
             this.splitContainer1.TabIndex = 0;
@@ -82,12 +82,11 @@
             // 
             // picBoxPage
             // 
-            this.picBoxPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBoxPage.GridColor = System.Drawing.Color.White;
             this.picBoxPage.Location = new System.Drawing.Point(0, 0);
             this.picBoxPage.Name = "picBoxPage";
-            this.picBoxPage.Size = new System.Drawing.Size(457, 392);
+            this.picBoxPage.Size = new System.Drawing.Size(75, 23);
             this.picBoxPage.TabIndex = 0;
-            this.picBoxPage.TabStop = false;
             // 
             // BookView
             // 
@@ -103,9 +102,9 @@
             this.Load += new System.EventHandler(this.GetPages);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxPage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,6 +114,6 @@
         private System.Windows.Forms.ImageList imgLstPages;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView lstImages;
-        private System.Windows.Forms.PictureBox picBoxPage;
+        private ToolBoxItems.ImageBox picBoxPage;
     }
 }
