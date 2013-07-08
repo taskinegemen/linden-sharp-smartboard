@@ -12,7 +12,6 @@ namespace Smartboard.Business.Repositories
 {
     public class BookRepository
     {
-
         public BookRepository()
         {
         }
