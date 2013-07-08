@@ -20,43 +20,28 @@ namespace Smartboard.Business.Services
 
         public List<Book> GetBooks()
         {
+            List<Book> books;
             BookRepository repo = new BookRepository();
-            return repo.GetUserBooks("userbooks.json");
+            books =  repo.GetUserBooks();
+            if (books == null)
+            {
+                throw new BusinessException("Kitap listesi okunamadı.");
+            }
+            return books;
         }
 
-        public List<Page> GetThumbnails(int bookId)
+        public List<Page> GetPages(int bookId)
         {
             List<Page> pages = new List<Page>();
-            DirectoryInfo dir = new DirectoryInfo(RepositoryPath.Path + "thumbnails\\" + bookId.ToString());
-
-            foreach (FileInfo file in dir.GetFiles())
-            {
-                Page page = new Page();
-                page.ThumbnailPath = file.FullName;
-                pages.Add(page);
-            }
-
+            BookRepository repo = new BookRepository();
+            pages = repo.GetPages(bookId);
             return pages;
         }
 
-        public Page GetPage(int bookId, int pageId)
+        public Page GetPage(int bookId, int pageNo)
         {
-            Page page = new Page();
-
-            using (StreamReader reader 
-                = new StreamReader(RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageId.ToString() + ".json"))
-            {
-                string json = reader.ReadToEnd();
-
-                page = JsonConvert.DeserializeObject<Page>(json);
-                page.ImagePath = RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageId.ToString() + ".jpg";
-            }
-            if (page == null)
-            {
-                throw new BusinessException("Hata oluştu.");
-            }
-
-            return page;
+            BookRepository repo = new BookRepository();
+            return repo.GetPage(bookId, pageNo);
         }
 
     }

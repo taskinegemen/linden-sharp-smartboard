@@ -31,7 +31,6 @@ namespace Smartboard.UI.Views
 
         #region public members
 
-        public List<Page> Pages;
 
         #endregion
 
@@ -48,7 +47,7 @@ namespace Smartboard.UI.Views
         {
             this.book = book;
 
-            this.Text = this.book.Id.ToString();
+            this.Text = "Kitap: " + this.book.BookId.ToString();
         }
 
         #endregion
@@ -69,58 +68,48 @@ namespace Smartboard.UI.Views
 
         private void GetPages(object sender, EventArgs e)
         {
-            this.Pages = this.presenter.GetPages(this.book.Id);
+            if (this.book.Pages.Count == 0)
+            {
+                this.book.Pages = this.presenter.GetPages(this.book.BookId);
+            }          
 
             this.lstImages.View = View.LargeIcon;
 
-            for(int i = 0; i < this.Pages.Count; i++)
+            for(int i = 0; i < this.book.Pages.Count; i++)
             {
-                ListViewItem item = new ListViewItem("asdsd", i);
+                ListViewItem item = new ListViewItem("sayfa: " + i.ToString(), i);
                 item.Text = "sayfa: " + (i + 1).ToString();
-                item.Name = (i + 1).ToString();
+                item.Name = this.book.Pages[i].PageNo.ToString();
                 this.lstImages.Items.Add(item);
             }
 
-            //this.lstImages.View = View.Details;  
+             
             this.imgLstPages.ImageSize = new Size(150, 210);
 
-            //this.lstImages.AutoArrange = false;
-            
-            //this.lstImages.Scrollable = true;
-            //this.lstImages.HeaderStyle = ColumnHeaderStyle.None;
-
-            foreach (Page page in this.Pages)
+            foreach (Page page in this.book.Pages)
             {    
                 this.imgLstPages.Images.Add(Image.FromFile(page.ThumbnailPath));
             }
 
             this.lstImages.LargeImageList = this.imgLstPages;
-            //this.lstImages.LargeImageList = this.imgLstPages;
-
-            //this.lstImages.Alignment = ListViewAlignment.Left;
-            
-
-            //for (int i = 0; i < this.imgLstPages.Images.Count; i++)
-            //{
-            //    ListViewItem item = new ListViewItem();
-            //    
-            //    item.ImageIndex = i;
-            //    item.Name = (i + 1).ToString();
-            //    item.Text = "sayfa " + i.ToString();
-
-            //    this.lstImages.Items.Add(item);
-            //}
         }
 
         private void GetPage(object sender, EventArgs e)
         {
             ListViewItem item = this.lstImages.SelectedItems[0];
+            int pageNo = int.Parse(item.Name);
 
-            Page page = this.presenter.GetPage(this.book.Id, int.Parse(item.Name));
+            int pageIndex = this.book.Pages.FindIndex(p => p.PageNo == pageNo);
+            Page page = this.book.Pages[pageIndex];
 
+            if ( !page.ReadBefore )
+            {
+                page = this.presenter.GetPage(this.book.BookId, pageNo);
+                this.book.Pages[pageIndex] = page;
+            }
+            
             this.picBoxPage.Width = page.Width;
             this.picBoxPage.Height = page.Height;
-
 
             this.picBoxPage.Image = Image.FromFile(page.ImagePath);
             this.picBoxPage.Size = this.picBoxPage.Image.Size;
@@ -171,7 +160,6 @@ namespace Smartboard.UI.Views
         }
 
         #endregion
-
         
     }
 }

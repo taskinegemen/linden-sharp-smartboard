@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,18 +10,23 @@ namespace Smartboard.Business.Entities
     public class Book
     {
         public Book()
-        { 
+        {
+            this.Pages = new List<Page>();
         }
 
-        public int Id
+        [JsonProperty(PropertyName="bookID")]
+        public int BookId
         { get; set; }
 
+        [JsonProperty(PropertyName="userID")]
         public int UserId
         { get; set; }
 
+        [JsonProperty(PropertyName="isDeleted")]
         public bool IsDeleted
         { get; set; }
 
+        [JsonProperty(PropertyName="datetime")]
         public DateTime DateTime
         { get; set; }
 

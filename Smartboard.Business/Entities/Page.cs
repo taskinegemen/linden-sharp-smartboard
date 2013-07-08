@@ -11,6 +11,8 @@ namespace Smartboard.Business.Entities
     {
         public Page()
         {
+            this.Items = new List<PageItem>();
+            this.Words = new List<PageWord>();
         }
 
         public string ThumbnailPath
@@ -18,13 +20,6 @@ namespace Smartboard.Business.Entities
 
         public string ImagePath
         { get; set; }
-
-        [JsonProperty(PropertyName="status")]
-        public bool Status
-        {
-            get;
-            set;
-        }
 
         [JsonProperty(PropertyName = "page")]
         public int PageNo
@@ -39,6 +34,17 @@ namespace Smartboard.Business.Entities
 
         [JsonProperty(PropertyName = "height")]
         public int Height
+        { get; set; }
+
+        [JsonProperty(PropertyName = "items")]
+        public List<PageItem> Items
+        { get; set; }
+
+        [JsonProperty(PropertyName = "words")]
+        public List<PageWord> Words
+        { get; set; }
+
+        public bool ReadBefore
         { get; set; }
 
     }

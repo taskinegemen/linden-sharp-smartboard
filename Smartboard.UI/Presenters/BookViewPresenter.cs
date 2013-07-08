@@ -20,12 +20,12 @@ namespace Smartboard.UI.Presenters
             this.view = view;
         }
 
-        public List<Page> GetPages(int bookdId)
+        public List<Page> GetPages(int bookId)
         {
             try
             {
                 BookService service = new BookService();
-                return service.GetThumbnails(bookdId);
+                return service.GetPages(bookId);
             }
             catch (BusinessException exc)
             {
@@ -34,21 +34,12 @@ namespace Smartboard.UI.Presenters
             }
         }
 
-        public Page GetPage(int bookId, int pageId)
+        public Page GetPage(int bookId, int pageNo)
         {
             try
             {
-                //foreach(Page page in this.view.Pages)
-                //{
-                //    if (page.Width != 0)
-                //    {
-                //        return page;
-                //    }
-                //}
-
-
                 BookService service = new BookService();
-                return service.GetPage(bookId, pageId);
+                return service.GetPage(bookId, pageNo);
             }
             catch (BusinessException exc)
             {

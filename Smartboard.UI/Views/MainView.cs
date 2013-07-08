@@ -39,7 +39,7 @@ namespace Smartboard.UI.Views
 
         private Book GetBook(int bookId)
         {
-            return this.books.Find(b => b.Id == bookId);
+            return this.books.Find(b => b.BookId == bookId);
         }
 
         #endregion
@@ -59,7 +59,7 @@ namespace Smartboard.UI.Views
                     pictureBox.Width = pictureBox.Image.Width;
                     pictureBox.Height = pictureBox.Image.Height;
 
-                    pictureBox.Name = this.books[i].Id.ToString();
+                    pictureBox.Name = this.books[i].BookId.ToString();
 
                     pictureBox.Click += new EventHandler(bookClick);
 
