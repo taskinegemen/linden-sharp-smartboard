@@ -1,12 +1,11 @@
 ﻿using Smartboard.Business.Common;
-using Smartboard.Data.Entities;
-using Smartboard.Data;
+using Smartboard.Business.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Smartboard.Data.Repositories;
+using Smartboard.Business.Repositories;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -28,7 +27,7 @@ namespace Smartboard.Business.Services
         public List<Page> GetThumbnails(int bookId)
         {
             List<Page> pages = new List<Page>();
-            DirectoryInfo dir = new DirectoryInfo(@"C:\json\thumbnails\" + bookId.ToString());
+            DirectoryInfo dir = new DirectoryInfo(RepositoryPath.Path + "thumbnails\\" + bookId.ToString());
 
             foreach (FileInfo file in dir.GetFiles())
             {
@@ -45,12 +44,12 @@ namespace Smartboard.Business.Services
             Page page = new Page();
 
             using (StreamReader reader 
-                = new StreamReader(@"C:\json\pages\" + bookId.ToString() + @"\" + pageId.ToString() + ".json"))
+                = new StreamReader(RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageId.ToString() + ".json"))
             {
                 string json = reader.ReadToEnd();
 
                 page = JsonConvert.DeserializeObject<Page>(json);
-                page.ImagePath = @"C:\json\pages\" + bookId.ToString() + @"\" + pageId.ToString() + ".jpg";
+                page.ImagePath = RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageId.ToString() + ".jpg";
             }
             if (page == null)
             {

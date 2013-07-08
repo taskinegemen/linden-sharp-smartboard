@@ -79,7 +79,7 @@ namespace Smartboard.ToolBoxItems
       this.ZoomIncrement = 20;
       this.InterpolationMode = InterpolationMode.Default;
       this.AutoCenter = true;
-      this.AllowClickZoom = true;
+      this.AllowClickZoom = false;
       this.ActualSize();
     }
 
@@ -452,52 +452,52 @@ namespace Smartboard.ToolBoxItems
     /// <param name="e">An <see cref="T:System.Windows.Forms.MouseEventArgs"/> that contains the event data.</param>
     protected override void OnMouseClick(MouseEventArgs e)
     {
-      if (this.AllowClickZoom && !this.IsPanning && !this.SizeToFit)
-      {
-        double oldZoomFactor;
-        Rectangle oldViewport;
-        Point oldPosition;
-
-        oldZoomFactor = this.ZoomFactor;
-        oldViewport = this.GetImageViewPort();
-        oldPosition = this.AutoScrollPosition;
-
-        if (e.Button == MouseButtons.Left && Control.ModifierKeys == Keys.None)
-          this.ZoomIn();
-        else if (e.Button == MouseButtons.Right || (e.Button == MouseButtons.Left && Control.ModifierKeys != Keys.None))
-          this.ZoomOut();
-
-        if (oldZoomFactor != this.ZoomFactor)
+        if (this.AllowClickZoom && !this.IsPanning && !this.SizeToFit)
         {
-          double newZoomFactor;
-          int oldX;
-          int oldY;
-          int newX;
-          int newY;
+            double oldZoomFactor;
+            Rectangle oldViewport;
+            Point oldPosition;
 
-          newZoomFactor = this.ZoomFactor;
-          oldX = (int)((e.X - oldViewport.X) / oldZoomFactor);
-          oldY = (int)((e.Y - oldViewport.Y) / oldZoomFactor);
+            oldZoomFactor = this.ZoomFactor;
+            oldViewport = this.GetImageViewPort();
+            oldPosition = this.AutoScrollPosition;
 
-          oldX = oldPosition.X != 0 ? (int)(oldPosition.X / oldZoomFactor) : 0;
-          oldY = oldPosition.Y != 0 ? (int)(oldPosition.Y / oldZoomFactor) : 0;
+            if (e.Button == MouseButtons.Left && Control.ModifierKeys == Keys.None)
+                this.ZoomIn();
+            else if (e.Button == MouseButtons.Right || (e.Button == MouseButtons.Left && Control.ModifierKeys != Keys.None))
+                this.ZoomOut();
 
-          AutoScrollPosition = new Point(oldX, oldY);
+            if (oldZoomFactor != this.ZoomFactor)
+            {
+                double newZoomFactor;
+                int oldX;
+                int oldY;
+                int newX;
+                int newY;
 
-          newX = (int)(oldX * newZoomFactor);
-          newY = (int)(oldY * newZoomFactor);
+                newZoomFactor = this.ZoomFactor;
+                oldX = (int)((e.X - oldViewport.X) / oldZoomFactor);
+                oldY = (int)((e.Y - oldViewport.Y) / oldZoomFactor);
 
-          //if (newZoomFactor < oldZoomFactor)
-          //{
-          //  newX = -newX;
-          //  newY = -newY;
-          //}
+                oldX = oldPosition.X != 0 ? (int)(oldPosition.X / oldZoomFactor) : 0;
+                oldY = oldPosition.Y != 0 ? (int)(oldPosition.Y / oldZoomFactor) : 0;
 
-          //this.AdjustScroll(newX - oldX, newY - oldY);
+                AutoScrollPosition = new Point(oldX, oldY);
+
+                newX = (int)(oldX * newZoomFactor);
+                newY = (int)(oldY * newZoomFactor);
+
+                //if (newZoomFactor < oldZoomFactor)
+                //{
+                //  newX = -newX;
+                //  newY = -newY;
+                //}
+
+                //this.AdjustScroll(newX - oldX, newY - oldY);
+            }
         }
-      }
 
-      base.OnMouseClick(e);
+        base.OnMouseClick(e);
     }
 
     /// <summary>

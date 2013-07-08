@@ -1,5 +1,5 @@
 ﻿using Smartboard.Business.Common;
-using Smartboard.Data.Entities;
+using Smartboard.Business.Entities;
 using Smartboard.Business.Services;
 using System;
 using System.Collections.Generic;

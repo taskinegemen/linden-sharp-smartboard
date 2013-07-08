@@ -1,6 +1,6 @@
 ﻿using Smartboard.Business.Common;
 using Smartboard.Business.Services;
-using Smartboard.Data.Entities;
+using Smartboard.Business.Entities;
 using Smartboard.UI.Views;
 using System;
 using System.Collections.Generic;

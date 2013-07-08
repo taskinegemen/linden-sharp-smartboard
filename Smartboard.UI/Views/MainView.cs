@@ -1,4 +1,4 @@
-﻿using Smartboard.Data.Entities;
+﻿using Smartboard.Business.Entities;
 using Smartboard.UI.Presenters;
 using System;
 using System.Collections.Generic;

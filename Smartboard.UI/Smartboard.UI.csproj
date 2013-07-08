@@ -102,10 +102,6 @@
       <Project>{dd155bbb-dc4b-46fb-ac15-767a6422e7a3}</Project>
       <Name>Smartboard.Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Smartboard.Data\Smartboard.Data.csproj">
-      <Project>{c29b4313-ca11-4b9d-af12-72f2723f4d0a}</Project>
-      <Name>Smartboard.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

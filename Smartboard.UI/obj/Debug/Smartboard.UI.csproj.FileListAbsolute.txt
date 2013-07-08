@@ -9,8 +9,6 @@ C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.exe
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.pdb
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Views.MainView.resources
-C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.Data.dll
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Newtonsoft.Json.dll
-C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Smartboard.Data.pdb
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Views.BookView.resources
