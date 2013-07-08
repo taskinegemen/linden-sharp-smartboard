@@ -18,6 +18,7 @@ namespace Smartboard.UI.Views
 
         private MainViewPresenter presenter;
         private List<Book> books;
+        private User user;
 
         #endregion
 
@@ -31,6 +32,7 @@ namespace Smartboard.UI.Views
         {
             InitializeComponent();
             this.presenter = new MainViewPresenter();
+            this.user = new User();
         }
 
         #endregion
@@ -79,7 +81,29 @@ namespace Smartboard.UI.Views
             BookView bookView = new BookView(book);
             bookView.Show();
         }
-        
+
+        private void CloseProgram(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Synchronize(object sender, EventArgs e)
+        {
+            LoginView loginView = new LoginView(this.user);
+            loginView.Show();
+
+            loginView.FormClosing += new FormClosingEventHandler(this.LoginViewClosing);
+        }
+
+        private void LoginViewClosing(object sender, EventArgs e)
+        {
+            LoginView view = sender as LoginView;
+            if (view.User.Status)
+            {
+                this.user = view.User;
+            }
+        }
+
         #endregion event handlers
         
     }
