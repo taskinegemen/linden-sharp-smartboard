@@ -13,3 +13,4 @@ C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Views.BookView.resources
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.Views.LoginView.resources
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.exe.licenses

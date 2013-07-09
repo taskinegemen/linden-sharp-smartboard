@@ -48,6 +48,8 @@ namespace Smartboard.UI.Views
             this.book = book;
 
             this.Text = "Kitap: " + this.book.BookId.ToString();
+
+            this.panel1.Location = this.picBoxPage.Location = new Point(0, 0);
         }
 
         #endregion
@@ -129,7 +131,7 @@ namespace Smartboard.UI.Views
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            this.picBoxPage.AllowClickZoom = !this.picBoxPage.AllowClickZoom;
+            //this.picBoxPage.AllowClickZoom = !this.picBoxPage.AllowClickZoom;
             this.areaSelection = !this.areaSelection;
             this.areaSelectionClickCount = 0;
         }

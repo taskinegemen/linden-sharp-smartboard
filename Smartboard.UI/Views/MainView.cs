@@ -1,4 +1,5 @@
-﻿using Smartboard.Business.Entities;
+﻿using DevExpress.XtraEditors;
+using Smartboard.Business.Entities;
 using Smartboard.UI.Presenters;
 using System;
 using System.Collections.Generic;
@@ -7,12 +8,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Smartboard.UI.Views
 {
-    public partial class MainView : Form
+    public partial class MainView : XtraForm
     {
         #region private members
 
@@ -44,28 +46,28 @@ namespace Smartboard.UI.Views
             return this.books.Find(b => b.BookId == bookId);
         }
 
-        #endregion
-
-        #region event handlers
-
-        private void onLoad(object sender, EventArgs e)
+        private void GetBooks()
         {
             this.books = this.presenter.GetBooks();
+
             if (this.books != null && this.books.Count > 0)
             {
                 for (int i = 0; i < this.books.Count; i++)
                 {
+
                     PictureBox pictureBox = new PictureBox();
-                    
+
                     pictureBox.Image = Image.FromFile(this.books[i].ImagePath);
                     pictureBox.Width = pictureBox.Image.Width;
                     pictureBox.Height = pictureBox.Image.Height;
 
                     pictureBox.Name = this.books[i].BookId.ToString();
 
-                    pictureBox.Click += new EventHandler(bookClick);
+                    pictureBox.Click += new EventHandler(BookClick);
 
-                    this.lytPictures.Controls.Add(pictureBox);
+                    //this.lytPictures.Controls.Add(pictureBox);
+
+                    
                 }
             }
             else
@@ -74,7 +76,26 @@ namespace Smartboard.UI.Views
             }
         }
 
-        private void bookClick(object sender, EventArgs e)
+        #endregion
+
+        #region event handlers
+
+        private void OnLoad(object sender, EventArgs e)
+        {
+            this.gridControl1.Visible = false;
+
+            this.workerReadFile.RunWorkerAsync();
+        }
+
+        private void OnKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void BookClick(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
             Book book = this.GetBook(int.Parse(pictureBox.Name));
@@ -104,7 +125,21 @@ namespace Smartboard.UI.Views
             }
         }
 
+        private void ReadFile(object sender, DoWorkEventArgs e)
+        {
+            this.GetBooks();
+        }
+
+        private void ReadFinished(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.gridControl1.Visible = true;
+            this.picEditLoader.Visible = false;
+            this.picEditLoader.Dispose();
+
+            this.bookBindingSource.DataSource = this.books;
+        }
+
         #endregion event handlers
-        
+
     }
 }
