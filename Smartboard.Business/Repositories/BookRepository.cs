@@ -7,6 +7,7 @@ using System.IO;
 using Smartboard.Business.Entities;
 using Newtonsoft.Json;
 using Smartboard.Business.Common;
+using System.Drawing;
 
 namespace Smartboard.Business.Repositories
 {
@@ -49,7 +50,9 @@ namespace Smartboard.Business.Repositories
                     book.DateTime = (DateTime)item.datetime;
 
                     book.ImagePath = RepositoryPath.Path + "covers\\" + book.BookId.ToString() + ".jpg";
-
+                    
+                    book.Image = Image.FromFile(book.ImagePath);
+                    
                     books.Add(book);
                 }
             }

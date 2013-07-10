@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Smartboard.Business.Entities
 {
@@ -30,10 +31,17 @@ namespace Smartboard.Business.Entities
         public DateTime DateTime
         { get; set; }
 
+        public Image Image
+        {
+            get;
+            set;
+        }
+
         public string ImagePath
         { get; set; }
 
         public List<Page> Pages
         { get; set; }
+
     }
 }
