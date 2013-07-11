@@ -46,6 +46,9 @@
             this.scrollableContainer = new DevExpress.XtraEditors.XtraScrollableControl();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.timerBook = new System.Windows.Forms.Timer(this.components);
+            this.labelControlLibrary = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlItemLibrary = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.picEditLoader.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -60,6 +63,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLibrary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // workerReadFile
@@ -83,6 +88,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControlLibrary);
             this.layoutControl1.Controls.Add(this.scrollableContainer);
             this.layoutControl1.Controls.Add(this.pictureEditAllNotesSearch);
             this.layoutControl1.Controls.Add(this.pictureEditMultimediaSearch);
@@ -98,10 +104,10 @@
             // pictureEditAllNotesSearch
             // 
             this.pictureEditAllNotesSearch.EditValue = ((object)(resources.GetObject("pictureEditAllNotesSearch.EditValue")));
-            this.pictureEditAllNotesSearch.Location = new System.Drawing.Point(465, 12);
+            this.pictureEditAllNotesSearch.Location = new System.Drawing.Point(467, 12);
             this.pictureEditAllNotesSearch.Name = "pictureEditAllNotesSearch";
             this.pictureEditAllNotesSearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEditAllNotesSearch.Size = new System.Drawing.Size(30, 30);
+            this.pictureEditAllNotesSearch.Size = new System.Drawing.Size(29, 30);
             this.pictureEditAllNotesSearch.StyleController = this.layoutControl1;
             this.pictureEditAllNotesSearch.TabIndex = 6;
             this.pictureEditAllNotesSearch.Click += new System.EventHandler(this.pictureEditAllNotesSearch_Click);
@@ -109,10 +115,10 @@
             // pictureEditMultimediaSearch
             // 
             this.pictureEditMultimediaSearch.EditValue = ((object)(resources.GetObject("pictureEditMultimediaSearch.EditValue")));
-            this.pictureEditMultimediaSearch.Location = new System.Drawing.Point(431, 12);
+            this.pictureEditMultimediaSearch.Location = new System.Drawing.Point(443, 12);
             this.pictureEditMultimediaSearch.Name = "pictureEditMultimediaSearch";
             this.pictureEditMultimediaSearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEditMultimediaSearch.Size = new System.Drawing.Size(30, 30);
+            this.pictureEditMultimediaSearch.Size = new System.Drawing.Size(20, 30);
             this.pictureEditMultimediaSearch.StyleController = this.layoutControl1;
             this.pictureEditMultimediaSearch.TabIndex = 5;
             this.pictureEditMultimediaSearch.Click += new System.EventHandler(this.pictureEditMultimediaSearch_Click);
@@ -140,7 +146,9 @@
             this.layoutControlItem2,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlItemLibrary,
+            this.emptySpaceItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(527, 364);
@@ -167,11 +175,11 @@
             this.layoutControlItemMultimediaSearch.Control = this.pictureEditMultimediaSearch;
             this.layoutControlItemMultimediaSearch.CustomizationFormText = "layoutControlItemMultimediaSearch";
             this.layoutControlItemMultimediaSearch.ImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
-            this.layoutControlItemMultimediaSearch.Location = new System.Drawing.Point(419, 0);
+            this.layoutControlItemMultimediaSearch.Location = new System.Drawing.Point(431, 0);
             this.layoutControlItemMultimediaSearch.MaxSize = new System.Drawing.Size(34, 34);
             this.layoutControlItemMultimediaSearch.MinSize = new System.Drawing.Size(24, 24);
             this.layoutControlItemMultimediaSearch.Name = "layoutControlItemMultimediaSearch";
-            this.layoutControlItemMultimediaSearch.Size = new System.Drawing.Size(34, 34);
+            this.layoutControlItemMultimediaSearch.Size = new System.Drawing.Size(24, 34);
             this.layoutControlItemMultimediaSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItemMultimediaSearch.Text = "layoutControlItemMultimediaSearch";
             this.layoutControlItemMultimediaSearch.TextSize = new System.Drawing.Size(0, 0);
@@ -183,11 +191,11 @@
             this.layoutControlItem2.Control = this.pictureEditAllNotesSearch;
             this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(453, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(455, 0);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(34, 34);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(24, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(34, 34);
+            this.layoutControlItem2.Size = new System.Drawing.Size(33, 34);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -198,11 +206,11 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(487, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(488, 0);
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(20, 34);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 10);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(20, 34);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(19, 34);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -210,16 +218,17 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.ControlAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(34, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(385, 34);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(188, 34);
             this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // scrollableContainer
             // 
-            this.scrollableContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scrollableContainer.Location = new System.Drawing.Point(12, 46);
             this.scrollableContainer.Name = "scrollableContainer";
             this.scrollableContainer.Size = new System.Drawing.Size(503, 306);
@@ -241,6 +250,44 @@
             // 
             this.timerBook.Interval = 500;
             this.timerBook.Tick += new System.EventHandler(this.timerBook_Tick);
+            // 
+            // labelControlLibrary
+            // 
+            this.labelControlLibrary.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControlLibrary.Location = new System.Drawing.Point(232, 10);
+            this.labelControlLibrary.Name = "labelControlLibrary";
+            this.labelControlLibrary.Size = new System.Drawing.Size(91, 34);
+            this.labelControlLibrary.StyleController = this.layoutControl1;
+            this.labelControlLibrary.TabIndex = 8;
+            this.labelControlLibrary.Text = "Kütüphane";
+            // 
+            // layoutControlItemLibrary
+            // 
+            this.layoutControlItemLibrary.Control = this.labelControlLibrary;
+            this.layoutControlItemLibrary.ControlAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.layoutControlItemLibrary.CustomizationFormText = "layoutControlItemLibrary";
+            this.layoutControlItemLibrary.Location = new System.Drawing.Point(222, 0);
+            this.layoutControlItemLibrary.MaxSize = new System.Drawing.Size(100, 0);
+            this.layoutControlItemLibrary.MinSize = new System.Drawing.Size(1, 1);
+            this.layoutControlItemLibrary.Name = "layoutControlItemLibrary";
+            this.layoutControlItemLibrary.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
+            this.layoutControlItemLibrary.Size = new System.Drawing.Size(91, 34);
+            this.layoutControlItemLibrary.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemLibrary.Text = "layoutControlItemLibrary";
+            this.layoutControlItemLibrary.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItemLibrary.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemLibrary.TextToControlDistance = 0;
+            this.layoutControlItemLibrary.TextVisible = false;
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
+            this.emptySpaceItem3.Location = new System.Drawing.Point(313, 0);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(118, 34);
+            this.emptySpaceItem3.Text = "emptySpaceItem3";
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MainView
             // 
@@ -271,6 +318,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLibrary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -293,6 +342,9 @@
         private DevExpress.XtraEditors.XtraScrollableControl scrollableContainer;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private System.Windows.Forms.Timer timerBook;
+        private DevExpress.XtraEditors.LabelControl labelControlLibrary;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemLibrary;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
 
 
 

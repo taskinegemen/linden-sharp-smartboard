@@ -164,8 +164,10 @@ namespace Smartboard.UI.Views
                 view.OptionsView.ShowHeaderPanel = false;
                 view.OptionsView.ShowViewCaption = true;
                 view.OptionsView.ViewMode = LayoutViewMode.Row;
-                view.ViewCaption = "Kategori-" + i.ToString();
+                view.ViewCaption = "     Kategori-" + i.ToString();
+                view.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
                 
+
                 LayoutViewColumn colImage = new LayoutViewColumn();
                 LayoutViewCard layoutViewCard = new LayoutViewCard();
                 LayoutViewField layoutViewField_colImage = new LayoutViewField();
