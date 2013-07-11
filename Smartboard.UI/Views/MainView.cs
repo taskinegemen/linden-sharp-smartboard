@@ -3,6 +3,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Layout;
+using DevExpress.XtraLayout;
 using Smartboard.Business.Entities;
 using Smartboard.UI.Presenters;
 using System;
@@ -25,6 +26,10 @@ namespace Smartboard.UI.Views
         private MainViewPresenter presenter;
         private List<Book> books;
         private User user;
+        private int tick = 0;
+        private bool bookHold = false;
+
+        private Book holdBook = null;
 
         #endregion
 
@@ -56,28 +61,19 @@ namespace Smartboard.UI.Views
 
             if (this.books != null && this.books.Count > 0)
             {
-                for (int i = 0; i < this.books.Count; i++)
-                {
-
-                    PictureBox pictureBox = new PictureBox();
-
-                    pictureBox.Image = Image.FromFile(this.books[i].ImagePath);
-                    pictureBox.Width = pictureBox.Image.Width;
-                    pictureBox.Height = pictureBox.Image.Height;
-
-                    pictureBox.Name = this.books[i].BookId.ToString();
-
-                    pictureBox.Click += new EventHandler(BookClick);
-
-                    //this.lytPictures.Controls.Add(pictureBox);
-
-                    
-                }
+                
             }
             else
             {
                 MessageBox.Show("Kitap yok!");
             }
+        }
+
+        private void OpenBookSubMenu()
+        {
+            this.tick = 0;
+            this.bookHold = false;
+            MessageBox.Show("OpenBookSubMenu: " + this.holdBook.BookId.ToString());
         }
 
         #endregion
@@ -87,7 +83,7 @@ namespace Smartboard.UI.Views
         private void OnLoad(object sender, EventArgs e)
         {
             this.picEditLoader.Visible = true;
-            this.scrollableContainer.Visible = false;
+            this.layoutControlGroup1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             this.workerReadFile.RunWorkerAsync();
         }
 
@@ -97,14 +93,6 @@ namespace Smartboard.UI.Views
             {
                 this.Close();
             }
-        }
-
-        private void BookClick(object sender, EventArgs e)
-        {
-            PictureBox pictureBox = (PictureBox)sender;
-            Book book = this.GetBook(int.Parse(pictureBox.Name));
-            BookView bookView = new BookView(book);
-            bookView.Show();
         }
 
         private void CloseProgram(object sender, EventArgs e)
@@ -136,15 +124,24 @@ namespace Smartboard.UI.Views
 
         private void ReadFinished(object sender, RunWorkerCompletedEventArgs e)
         {
-            int categoryCount = 2;
+            int categoryCount = 1;
             int y = 0;
             for (int i = 0; i < categoryCount; i++)
             {
                 GridControl control = new GridControl();
-                control.KeyPress += new KeyPressEventHandler(this.OnKeyPress);                
-
+                
                 control.Height = 500;
-                control.Width = this.Width;
+
+                if (categoryCount > 1)
+                {
+                    control.Width = 
+                        this.scrollableContainer.Width - (System.Windows.Forms.SystemInformation.VerticalScrollBarWidth);
+                }
+                else
+                {
+                    control.Width = this.scrollableContainer.Width;
+                }
+                
                 control.Name = "gridControl-" + i.ToString();
 
                 RepositoryItemPictureEdit pictureEdit = new RepositoryItemPictureEdit();
@@ -168,7 +165,7 @@ namespace Smartboard.UI.Views
                 view.OptionsView.ShowViewCaption = true;
                 view.OptionsView.ViewMode = LayoutViewMode.Row;
                 view.ViewCaption = "Kategori-" + i.ToString();
-
+                
                 LayoutViewColumn colImage = new LayoutViewColumn();
                 LayoutViewCard layoutViewCard = new LayoutViewCard();
                 LayoutViewField layoutViewField_colImage = new LayoutViewField();
@@ -211,9 +208,8 @@ namespace Smartboard.UI.Views
                 layoutViewField_colImage.TextVisible = false;
 
                 pictureEdit.Click += new EventHandler(this.OnBookClick);
-
-                // set view keypress event
-                view.KeyPress += new KeyPressEventHandler(this.OnKeyPress); 
+                pictureEdit.MouseDown += new MouseEventHandler(this.StartTimer);
+                pictureEdit.MouseUp += new MouseEventHandler(this.StopTimer);
 
                 // set location
                 control.Location = new Point(0, y);
@@ -224,11 +220,20 @@ namespace Smartboard.UI.Views
             this.picEditLoader.Visible = false;
             this.picEditLoader.Dispose();
 
-            this.scrollableContainer.Visible = true;
+            this.layoutControlGroup1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
         }
 
         private void OnBookClick(object sender, EventArgs e)
         {
+            if (this.bookHold)
+            {
+                this.bookHold = false;
+                return;
+            }
+
+            this.tick = 0;
+            timerBook.Stop();
+
             PictureEdit edit = sender as PictureEdit;
             GridControl control = edit.Parent as GridControl;
             LayoutView view = control.MainView as LayoutView;
@@ -241,7 +246,55 @@ namespace Smartboard.UI.Views
             }
         }
 
+        private void picEditClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureEditMultimediaSearch_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Multimedia Search...");
+        }
+
+        private void pictureEditAllNotesSearch_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("All Notes Search...");
+        }
+
+        private void StartTimer(object sender, MouseEventArgs e)
+        {
+            PictureEdit edit = sender as PictureEdit;
+            GridControl control = edit.Parent as GridControl;
+            LayoutView view = control.MainView as LayoutView;
+
+            int rowHandle = view.FocusedRowHandle;
+            if (rowHandle > -1)
+            {
+                holdBook = view.GetRow(rowHandle) as Book;
+            }
+
+            timerBook.Start();
+        }
+
+        private void StopTimer(object sender, MouseEventArgs e)
+        {
+            timerBook.Stop();
+        }
+
+        private void timerBook_Tick(object sender, EventArgs e)
+        {
+            tick++;
+            if (tick == 2)
+            {
+                tick = 0;
+                timerBook.Stop();
+                this.bookHold = true;
+                this.OpenBookSubMenu();
+            }
+        }
+
         #endregion event handlers
 
+        
     }
 }

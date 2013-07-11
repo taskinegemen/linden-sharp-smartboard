@@ -32,10 +32,34 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.workerReadFile = new System.ComponentModel.BackgroundWorker();
             this.picEditLoader = new DevExpress.XtraEditors.PictureEdit();
-            this.scrollableContainer = new DevExpress.XtraEditors.XtraScrollableControl();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.pictureEditAllNotesSearch = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEditMultimediaSearch = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEditClose = new DevExpress.XtraEditors.PictureEdit();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItemClose = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemMultimediaSearch = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.scrollableContainer = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timerBook = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picEditLoader.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditAllNotesSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditMultimediaSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditClose.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMultimediaSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // workerReadFile
@@ -53,17 +77,170 @@
             this.picEditLoader.Size = new System.Drawing.Size(527, 364);
             this.picEditLoader.TabIndex = 0;
             // 
-            // scrollableContainer
-            // 
-            this.scrollableContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scrollableContainer.Location = new System.Drawing.Point(0, 0);
-            this.scrollableContainer.Name = "scrollableContainer";
-            this.scrollableContainer.Size = new System.Drawing.Size(527, 364);
-            this.scrollableContainer.TabIndex = 1;
-            // 
             // bookBindingSource
             // 
             this.bookBindingSource.DataSource = typeof(Smartboard.Business.Entities.Book);
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.scrollableContainer);
+            this.layoutControl1.Controls.Add(this.pictureEditAllNotesSearch);
+            this.layoutControl1.Controls.Add(this.pictureEditMultimediaSearch);
+            this.layoutControl1.Controls.Add(this.pictureEditClose);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(527, 364);
+            this.layoutControl1.TabIndex = 2;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // pictureEditAllNotesSearch
+            // 
+            this.pictureEditAllNotesSearch.EditValue = ((object)(resources.GetObject("pictureEditAllNotesSearch.EditValue")));
+            this.pictureEditAllNotesSearch.Location = new System.Drawing.Point(465, 12);
+            this.pictureEditAllNotesSearch.Name = "pictureEditAllNotesSearch";
+            this.pictureEditAllNotesSearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEditAllNotesSearch.Size = new System.Drawing.Size(30, 30);
+            this.pictureEditAllNotesSearch.StyleController = this.layoutControl1;
+            this.pictureEditAllNotesSearch.TabIndex = 6;
+            this.pictureEditAllNotesSearch.Click += new System.EventHandler(this.pictureEditAllNotesSearch_Click);
+            // 
+            // pictureEditMultimediaSearch
+            // 
+            this.pictureEditMultimediaSearch.EditValue = ((object)(resources.GetObject("pictureEditMultimediaSearch.EditValue")));
+            this.pictureEditMultimediaSearch.Location = new System.Drawing.Point(431, 12);
+            this.pictureEditMultimediaSearch.Name = "pictureEditMultimediaSearch";
+            this.pictureEditMultimediaSearch.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEditMultimediaSearch.Size = new System.Drawing.Size(30, 30);
+            this.pictureEditMultimediaSearch.StyleController = this.layoutControl1;
+            this.pictureEditMultimediaSearch.TabIndex = 5;
+            this.pictureEditMultimediaSearch.Click += new System.EventHandler(this.pictureEditMultimediaSearch_Click);
+            // 
+            // pictureEditClose
+            // 
+            this.pictureEditClose.EditValue = ((object)(resources.GetObject("pictureEditClose.EditValue")));
+            this.pictureEditClose.Location = new System.Drawing.Point(12, 12);
+            this.pictureEditClose.Name = "pictureEditClose";
+            this.pictureEditClose.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEditClose.Properties.PictureAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.pictureEditClose.Size = new System.Drawing.Size(30, 30);
+            this.pictureEditClose.StyleController = this.layoutControl1;
+            this.pictureEditClose.TabIndex = 0;
+            this.pictureEditClose.Click += new System.EventHandler(this.picEditClose_Click);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItemClose,
+            this.layoutControlItemMultimediaSearch,
+            this.layoutControlItem2,
+            this.emptySpaceItem1,
+            this.emptySpaceItem2,
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(527, 364);
+            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItemClose
+            // 
+            this.layoutControlItemClose.Control = this.pictureEditClose;
+            this.layoutControlItemClose.CustomizationFormText = "layoutControlItemClose";
+            this.layoutControlItemClose.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItemClose.MaxSize = new System.Drawing.Size(34, 34);
+            this.layoutControlItemClose.MinSize = new System.Drawing.Size(34, 34);
+            this.layoutControlItemClose.Name = "layoutControlItemClose";
+            this.layoutControlItemClose.Size = new System.Drawing.Size(34, 34);
+            this.layoutControlItemClose.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemClose.Text = "layoutControlItemClose";
+            this.layoutControlItemClose.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemClose.TextToControlDistance = 0;
+            this.layoutControlItemClose.TextVisible = false;
+            // 
+            // layoutControlItemMultimediaSearch
+            // 
+            this.layoutControlItemMultimediaSearch.Control = this.pictureEditMultimediaSearch;
+            this.layoutControlItemMultimediaSearch.CustomizationFormText = "layoutControlItemMultimediaSearch";
+            this.layoutControlItemMultimediaSearch.ImageAlignment = System.Drawing.ContentAlignment.MiddleRight;
+            this.layoutControlItemMultimediaSearch.Location = new System.Drawing.Point(419, 0);
+            this.layoutControlItemMultimediaSearch.MaxSize = new System.Drawing.Size(34, 34);
+            this.layoutControlItemMultimediaSearch.MinSize = new System.Drawing.Size(24, 24);
+            this.layoutControlItemMultimediaSearch.Name = "layoutControlItemMultimediaSearch";
+            this.layoutControlItemMultimediaSearch.Size = new System.Drawing.Size(34, 34);
+            this.layoutControlItemMultimediaSearch.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItemMultimediaSearch.Text = "layoutControlItemMultimediaSearch";
+            this.layoutControlItemMultimediaSearch.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItemMultimediaSearch.TextToControlDistance = 0;
+            this.layoutControlItemMultimediaSearch.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.pictureEditAllNotesSearch;
+            this.layoutControlItem2.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
+            this.layoutControlItem2.Location = new System.Drawing.Point(453, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(34, 34);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(24, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(34, 34);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem2.Text = "layoutControlItem2";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextToControlDistance = 0;
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
+            this.emptySpaceItem1.Location = new System.Drawing.Point(487, 0);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(20, 34);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 10);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(20, 34);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
+            this.emptySpaceItem2.Location = new System.Drawing.Point(34, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(385, 34);
+            this.emptySpaceItem2.Text = "emptySpaceItem2";
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // scrollableContainer
+            // 
+            this.scrollableContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scrollableContainer.Location = new System.Drawing.Point(12, 46);
+            this.scrollableContainer.Name = "scrollableContainer";
+            this.scrollableContainer.Size = new System.Drawing.Size(503, 306);
+            this.scrollableContainer.TabIndex = 7;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.scrollableContainer;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(507, 310);
+            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextToControlDistance = 0;
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // timerBook
+            // 
+            this.timerBook.Interval = 500;
+            this.timerBook.Tick += new System.EventHandler(this.timerBook_Tick);
             // 
             // MainView
             // 
@@ -71,7 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(527, 364);
-            this.Controls.Add(this.scrollableContainer);
+            this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.picEditLoader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainView";
@@ -82,6 +259,18 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.picEditLoader.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditAllNotesSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditMultimediaSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditClose.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMultimediaSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,8 +279,20 @@
 
         private System.ComponentModel.BackgroundWorker workerReadFile;
         private DevExpress.XtraEditors.PictureEdit picEditLoader;
-        private DevExpress.XtraEditors.XtraScrollableControl scrollableContainer;
         private System.Windows.Forms.BindingSource bookBindingSource;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraEditors.PictureEdit pictureEditClose;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemClose;
+        private DevExpress.XtraEditors.PictureEdit pictureEditMultimediaSearch;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItemMultimediaSearch;
+        private DevExpress.XtraEditors.PictureEdit pictureEditAllNotesSearch;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.XtraScrollableControl scrollableContainer;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private System.Windows.Forms.Timer timerBook;
 
 
 
