@@ -29,7 +29,7 @@ namespace Smartboard.UI.Views
         private int tick = 0;
         private bool bookHold = false;
 
-        private Book holdBook = null;
+        private Book book = null;
 
         #endregion
 
@@ -73,7 +73,9 @@ namespace Smartboard.UI.Views
         {
             this.tick = 0;
             this.bookHold = false;
-            MessageBox.Show("OpenBookSubMenu: " + this.holdBook.BookId.ToString());
+
+            BookView bookView = new BookView(this.book);
+            bookView.Show();
         }
 
         #endregion
@@ -124,7 +126,7 @@ namespace Smartboard.UI.Views
 
         private void ReadFinished(object sender, RunWorkerCompletedEventArgs e)
         {
-            int categoryCount = 1;
+            int categoryCount = 2;
             int y = 0;
             for (int i = 0; i < categoryCount; i++)
             {
@@ -244,7 +246,9 @@ namespace Smartboard.UI.Views
             if (rowHandle > -1)
             {
                 Book book = view.GetRow(rowHandle) as Book;
-                MessageBox.Show("Book: " + book.BookId.ToString());
+
+                BookView bookView = new BookView(book);
+                bookView.Show();
             }
         }
 
@@ -255,12 +259,16 @@ namespace Smartboard.UI.Views
 
         private void pictureEditMultimediaSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Multimedia Search...");
+            SearchView searchView = 
+                new SearchView(SearchView.SearchViewType.MultimediaSearch);
+            searchView.ShowDialog();
         }
 
         private void pictureEditAllNotesSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("All Notes Search...");
+            SearchView searchView =
+                new SearchView(SearchView.SearchViewType.AllNotesSearch);
+            searchView.ShowDialog();
         }
 
         private void StartTimer(object sender, MouseEventArgs e)
@@ -272,7 +280,7 @@ namespace Smartboard.UI.Views
             int rowHandle = view.FocusedRowHandle;
             if (rowHandle > -1)
             {
-                holdBook = view.GetRow(rowHandle) as Book;
+                this.book = view.GetRow(rowHandle) as Book;
             }
 
             timerBook.Start();
