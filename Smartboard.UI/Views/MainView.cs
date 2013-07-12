@@ -132,7 +132,7 @@ namespace Smartboard.UI.Views
             {
                 GridControl control = new GridControl();
                 
-                control.Height = 500;
+                control.Height = 400;
 
                 if (categoryCount > 1)
                 {
@@ -217,7 +217,7 @@ namespace Smartboard.UI.Views
 
                 // set location
                 control.Location = new Point(0, y);
-                y += 500;
+                y += 400;
                 this.scrollableContainer.Controls.Add(control);
             }
 

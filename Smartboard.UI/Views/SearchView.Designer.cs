@@ -49,6 +49,7 @@
             this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceNotes = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceMultimedias = new System.Windows.Forms.BindingSource(this.components);
+            this.timerClick = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSearch)).BeginInit();
             this.layoutControlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControlCourses)).BeginInit();
@@ -132,6 +133,8 @@
             this.listBoxControlBooks.Size = new System.Drawing.Size(173, 240);
             this.listBoxControlBooks.StyleController = this.layoutControlSearch;
             this.listBoxControlBooks.TabIndex = 6;
+            this.listBoxControlBooks.Click += new System.EventHandler(this.listBoxControlBooks_Click);
+            this.listBoxControlBooks.DoubleClick += new System.EventHandler(this.listBoxControlBooks_DoubleClick);
             // 
             // listBoxControlClasses
             // 
@@ -270,6 +273,11 @@
             // 
             this.bindingSourceMultimedias.DataSource = typeof(Smartboard.Business.Entities.Multimedia);
             // 
+            // timerClick
+            // 
+            this.timerClick.Interval = 200;
+            this.timerClick.Tick += new System.EventHandler(this.timerClick_Tick);
+            // 
             // SearchView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +331,7 @@
         private System.Windows.Forms.BindingSource bindingSourceCourses;
         private System.Windows.Forms.BindingSource bindingSourceNotes;
         private System.Windows.Forms.BindingSource bindingSourceMultimedias;
+        private System.Windows.Forms.Timer timerClick;
 
     }
 }

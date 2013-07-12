@@ -20,6 +20,7 @@ namespace Smartboard.UI.Views
         private List<Category> categories = new List<Category>();
 
         private SearchPresenter presenter = new SearchPresenter();
+        private bool isDoubleClick = false;
 
         #endregion
 
@@ -102,6 +103,60 @@ namespace Smartboard.UI.Views
                 this.bindingSourceMultimedias.DataSource = course.Multimedias;
                 this.listBoxControlBooks.DataSource = this.bindingSourceMultimedias;
             }
+            this.listBoxControlBooks.SelectedIndex = -1;
+        }
+
+        private void listBoxControlBooks_Click(object sender, EventArgs e)
+        {
+            this.isDoubleClick = false;
+            this.timerClick.Start();
+        }
+
+        private void listBoxControlBooks_DoubleClick(object sender, EventArgs e)
+        {
+            this.isDoubleClick = true;
+            this.timerClick.Start();
+        }
+
+        private void timerClick_Tick(object sender, EventArgs e)
+        {
+            this.timerClick.Stop();
+            if (this.isDoubleClick)
+            {
+                this.DoDoubleClickEvent();
+            }
+            else
+            {
+                this.DoClickEvent();
+            }
+        }
+
+        private void DoClickEvent()
+        {
+            if (this.searchViewType == SearchViewType.AllNotesSearch)
+            {
+                Note note = this.listBoxControlBooks.SelectedValue as Note;
+                MessageBox.Show("click: " + note.ToString());
+            }
+            else
+            {
+                Multimedia note = this.listBoxControlBooks.SelectedValue as Multimedia;
+                MessageBox.Show("click: " + note.ToString());
+            }
+        }
+
+        private void DoDoubleClickEvent()
+        {
+            if (this.searchViewType == SearchViewType.AllNotesSearch)
+            {
+                Note note = this.listBoxControlBooks.SelectedValue as Note;
+                MessageBox.Show("double click: " + note.ToString());
+            }
+            else
+            {
+                Multimedia note = this.listBoxControlBooks.SelectedValue as Multimedia;
+                MessageBox.Show("double click: " + note.ToString());
+            }
         }
 
         #endregion
@@ -115,6 +170,7 @@ namespace Smartboard.UI.Views
         }
 
         #endregion
+
 
     }
 

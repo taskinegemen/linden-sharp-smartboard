@@ -38,6 +38,9 @@ namespace Smartboard.Business.Repositories
                 return array;
             }
 
+            for(int i = 0; i < 5; i++) // delete
+            { // delete
+
             foreach (var item in array.books)
             { 
                 if ((int)item.isDeleted == 0)
@@ -56,7 +59,7 @@ namespace Smartboard.Business.Repositories
                     books.Add(book);
                 }
             }
-
+            }//delete
             return books;
         }
 
