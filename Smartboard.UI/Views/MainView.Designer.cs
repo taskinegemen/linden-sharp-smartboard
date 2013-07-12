@@ -32,8 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.workerReadFile = new System.ComponentModel.BackgroundWorker();
             this.picEditLoader = new DevExpress.XtraEditors.PictureEdit();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControlLibrary = new DevExpress.XtraEditors.LabelControl();
+            this.scrollableContainer = new DevExpress.XtraEditors.XtraScrollableControl();
             this.pictureEditAllNotesSearch = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEditMultimediaSearch = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEditClose = new DevExpress.XtraEditors.PictureEdit();
@@ -43,14 +44,12 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.scrollableContainer = new DevExpress.XtraEditors.XtraScrollableControl();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timerBook = new System.Windows.Forms.Timer(this.components);
-            this.labelControlLibrary = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItemLibrary = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.timerBook = new System.Windows.Forms.Timer(this.components);
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picEditLoader.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditAllNotesSearch.Properties)).BeginInit();
@@ -65,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLibrary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // workerReadFile
@@ -82,10 +82,6 @@
             this.picEditLoader.Size = new System.Drawing.Size(527, 364);
             this.picEditLoader.TabIndex = 0;
             // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataSource = typeof(Smartboard.Business.Entities.Book);
-            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.labelControlLibrary);
@@ -100,6 +96,23 @@
             this.layoutControl1.Size = new System.Drawing.Size(527, 364);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // labelControlLibrary
+            // 
+            this.labelControlLibrary.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControlLibrary.Location = new System.Drawing.Point(232, 10);
+            this.labelControlLibrary.Name = "labelControlLibrary";
+            this.labelControlLibrary.Size = new System.Drawing.Size(91, 34);
+            this.labelControlLibrary.StyleController = this.layoutControl1;
+            this.labelControlLibrary.TabIndex = 8;
+            this.labelControlLibrary.Text = "Kütüphane";
+            // 
+            // scrollableContainer
+            // 
+            this.scrollableContainer.Location = new System.Drawing.Point(12, 46);
+            this.scrollableContainer.Name = "scrollableContainer";
+            this.scrollableContainer.Size = new System.Drawing.Size(503, 306);
+            this.scrollableContainer.TabIndex = 7;
             // 
             // pictureEditAllNotesSearch
             // 
@@ -227,13 +240,6 @@
             this.emptySpaceItem2.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // scrollableContainer
-            // 
-            this.scrollableContainer.Location = new System.Drawing.Point(12, 46);
-            this.scrollableContainer.Name = "scrollableContainer";
-            this.scrollableContainer.Size = new System.Drawing.Size(503, 306);
-            this.scrollableContainer.TabIndex = 7;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.scrollableContainer;
@@ -245,21 +251,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // timerBook
-            // 
-            this.timerBook.Interval = 500;
-            this.timerBook.Tick += new System.EventHandler(this.timerBook_Tick);
-            // 
-            // labelControlLibrary
-            // 
-            this.labelControlLibrary.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControlLibrary.Location = new System.Drawing.Point(232, 10);
-            this.labelControlLibrary.Name = "labelControlLibrary";
-            this.labelControlLibrary.Size = new System.Drawing.Size(91, 34);
-            this.labelControlLibrary.StyleController = this.layoutControl1;
-            this.labelControlLibrary.TabIndex = 8;
-            this.labelControlLibrary.Text = "Kütüphane";
             // 
             // layoutControlItemLibrary
             // 
@@ -289,6 +280,15 @@
             this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // timerBook
+            // 
+            this.timerBook.Interval = 500;
+            this.timerBook.Tick += new System.EventHandler(this.timerBook_Tick);
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(Smartboard.Business.Entities.Book);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +298,8 @@
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.picEditLoader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "MainView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Linden-Sharp-Smartboard";
@@ -305,7 +307,6 @@
             this.Load += new System.EventHandler(this.OnLoad);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnKeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.picEditLoader.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditAllNotesSearch.Properties)).EndInit();
@@ -320,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemLibrary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

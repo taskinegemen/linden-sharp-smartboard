@@ -3,18 +3,12 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Layout;
-using DevExpress.XtraLayout;
 using Smartboard.Business.Entities;
 using Smartboard.UI.Presenters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Smartboard.UI.Views
@@ -74,8 +68,7 @@ namespace Smartboard.UI.Views
             this.tick = 0;
             this.bookHold = false;
 
-            BookView bookView = new BookView(this.book);
-            bookView.Show();
+            MessageBox.Show("Sub Menu");
         }
 
         #endregion
@@ -247,8 +240,11 @@ namespace Smartboard.UI.Views
             {
                 Book book = view.GetRow(rowHandle) as Book;
 
-                BookView bookView = new BookView(book);
-                bookView.Show();
+                //BookView bookView = new BookView(book);
+                //bookView.Show();
+
+                ReaderView readerView = new ReaderView(book);
+                readerView.Show();
             }
         }
 
@@ -305,6 +301,5 @@ namespace Smartboard.UI.Views
 
         #endregion event handlers
 
-        
     }
 }

@@ -45,11 +45,11 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.timerClick = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceClasses = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceCourses = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceNotes = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceMultimedias = new System.Windows.Forms.BindingSource(this.components);
-            this.timerClick = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlSearch)).BeginInit();
             this.layoutControlSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listBoxControlCourses)).BeginInit();
@@ -153,6 +153,7 @@
             this.textEditSearch.Size = new System.Drawing.Size(430, 20);
             this.textEditSearch.StyleController = this.layoutControlSearch;
             this.textEditSearch.TabIndex = 4;
+            this.textEditSearch.Click += new System.EventHandler(this.textEditSearch_Click);
             // 
             // layoutControlGroup1
             // 
@@ -257,6 +258,11 @@
             this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
+            // timerClick
+            // 
+            this.timerClick.Interval = 200;
+            this.timerClick.Tick += new System.EventHandler(this.timerClick_Tick);
+            // 
             // bindingSourceClasses
             // 
             this.bindingSourceClasses.DataSource = typeof(Smartboard.Business.Entities.Category);
@@ -273,17 +279,14 @@
             // 
             this.bindingSourceMultimedias.DataSource = typeof(Smartboard.Business.Entities.Multimedia);
             // 
-            // timerClick
-            // 
-            this.timerClick.Interval = 200;
-            this.timerClick.Tick += new System.EventHandler(this.timerClick_Tick);
-            // 
             // SearchView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 316);
             this.Controls.Add(this.layoutControlSearch);
+            this.LookAndFeel.SkinName = "Metropolis";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "SearchView";
             this.Text = "SearchView";
             this.Load += new System.EventHandler(this.OnViewLoad);

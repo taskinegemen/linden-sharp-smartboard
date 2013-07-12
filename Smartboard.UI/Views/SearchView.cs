@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Smartboard.Business.Entities;
 using Smartboard.UI.Presenters;
+using System.IO;
+using System.Diagnostics;
 
 namespace Smartboard.UI.Views
 {
@@ -159,6 +161,31 @@ namespace Smartboard.UI.Views
             }
         }
 
+        private void textEditSearch_Click(object sender, EventArgs e)
+        {
+            StartOSK();
+        }
+
+        private static void StartOSK()
+        {
+            //string windir = Environment.GetEnvironmentVariable("WINDIR");
+            //string osk = null;
+
+            //if (osk == null)
+            //{
+            //    osk = Path.Combine(Path.Combine(windir, "system32"), "osk.exe");
+            //    if (!File.Exists(osk))
+            //    {
+            //        osk = null;
+            //    }
+            //}
+
+            //if (osk == null)
+            //    osk = "osk.exe";
+
+            Process.Start("osk.exe");
+        }
+
         #endregion
 
         #region enums
@@ -170,7 +197,6 @@ namespace Smartboard.UI.Views
         }
 
         #endregion
-
 
     }
 
