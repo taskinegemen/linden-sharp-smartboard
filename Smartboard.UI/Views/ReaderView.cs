@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Smartboard.UI.Presenters;
 using Smartboard.Business.Entities;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Layout;
 
 namespace Smartboard.UI.Views
 {
@@ -27,6 +29,7 @@ namespace Smartboard.UI.Views
 
         #endregion
 
+        #region public methods
 
         public ReaderView()
         {
@@ -37,5 +40,28 @@ namespace Smartboard.UI.Views
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region event handlers
+
+        // back to the library
+        private void simpleButtonBackLibrary_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void simpleButtonOpenPages_Click(object sender, EventArgs e)
+        {
+            GridControl control = new GridControl();
+            LayoutView view = new LayoutView();
+
+            control.MainView = view;
+
+            this.xtraScrollableControlPage.Controls.Add(control);
+        }
+
+        #endregion
+
     }
 }

@@ -78,7 +78,7 @@ namespace Smartboard.UI.Views
         private void OnLoad(object sender, EventArgs e)
         {
             this.picEditLoader.Visible = true;
-            this.layoutControlGroup1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            this.layoutControl1.Visible = false;
             this.workerReadFile.RunWorkerAsync();
         }
 
@@ -217,7 +217,7 @@ namespace Smartboard.UI.Views
             this.picEditLoader.Visible = false;
             this.picEditLoader.Dispose();
 
-            this.layoutControlGroup1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            this.layoutControl1.Visible = true;
         }
 
         private void OnBookClick(object sender, EventArgs e)
