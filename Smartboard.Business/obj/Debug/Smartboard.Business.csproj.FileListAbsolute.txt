@@ -5,3 +5,10 @@ C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Busines
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Business\obj\Debug\Smartboard.Business.dll
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Business\obj\Debug\Smartboard.Business.pdb
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.Business\obj\Debug\Smartboard.Business.csprojResolveAssemblyReference.cache
+C:\c_ouz\repositories\linden\Smartboard.Business\bin\Debug\Smartboard.Business.dll
+C:\c_ouz\repositories\linden\Smartboard.Business\bin\Debug\Smartboard.Business.pdb
+C:\c_ouz\repositories\linden\Smartboard.Business\bin\Debug\Newtonsoft.Json.dll
+C:\c_ouz\repositories\linden\Smartboard.Business\bin\Debug\Newtonsoft.Json.xml
+C:\c_ouz\repositories\linden\Smartboard.Business\obj\Debug\Smartboard.Business.csprojResolveAssemblyReference.cache
+C:\c_ouz\repositories\linden\Smartboard.Business\obj\Debug\Smartboard.Business.dll
+C:\c_ouz\repositories\linden\Smartboard.Business\obj\Debug\Smartboard.Business.pdb
