@@ -16,3 +16,6 @@ C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.exe.licenses
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.exe
 C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.pdb
+C:\c_ouz\repositories\linden\Smartboard.UI\bin\Debug\Smartboard.UI.exe.config
+C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.exe
+C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.pdb
