@@ -43,5 +43,7 @@ namespace Smartboard.Business.Entities
         public List<Page> Pages
         { get; set; }
 
+        public List<Thumbnail> PageThumbnails
+        { get; set; }
     }
 }

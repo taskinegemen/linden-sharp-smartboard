@@ -28,40 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.simpleButtonPaint = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonMultimediaSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonZoomPlus = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonZoomMinus = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonBackLibrary = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonAddNote = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonContent = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.xtraScrollableControlPage = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.layoutControlItemPage = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonPreviousPage = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonNextPage = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControlPage = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItemPageText = new DevExpress.XtraLayout.LayoutControlItem();
-            this.simpleButtonBracket = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.labelControlCloseBracket = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlTotalPages = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlOpenBracket = new DevExpress.XtraEditors.LabelControl();
             this.simpleButtonOpenPages = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonBracket = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButtonNextPage = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonPreviousPage = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraScrollableControlPage = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.gridControlPages = new DevExpress.XtraGrid.GridControl();
+            this.bindingSourcePages = new System.Windows.Forms.BindingSource(this.components);
+            this.layoutViewPages = new DevExpress.XtraGrid.Views.Layout.LayoutView();
+            this.colImage = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.colBookId = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
+            this.colPageId = new DevExpress.XtraGrid.Columns.LayoutViewColumn();
+            this.pictureEditPage = new DevExpress.XtraEditors.PictureEdit();
+            this.simpleButtonContent = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonAddNote = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonBackLibrary = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonZoomMinus = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonZoomPlus = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonMultimediaSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonPaint = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemPage = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemPageText = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.backgroundWorkerPageThumbnails = new System.ComponentModel.BackgroundWorker();
+            this.layoutViewCard1 = new DevExpress.XtraGrid.Views.Layout.LayoutViewCard();
+            this.layoutViewField_colImage = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
+            this.layoutViewField_colBookId = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
+            this.layoutViewField_colPageId = new DevExpress.XtraGrid.Views.Layout.LayoutViewField();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.xtraScrollableControlPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewPages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditPage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -73,21 +102,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPageText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colBookId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colPageId)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControlCloseBracket);
+            this.layoutControl1.Controls.Add(this.labelControlTotalPages);
+            this.layoutControl1.Controls.Add(this.labelControl3);
+            this.layoutControl1.Controls.Add(this.labelControl2);
+            this.layoutControl1.Controls.Add(this.labelControlOpenBracket);
             this.layoutControl1.Controls.Add(this.simpleButtonOpenPages);
             this.layoutControl1.Controls.Add(this.simpleButtonBracket);
             this.layoutControl1.Controls.Add(this.textEdit1);
-            this.layoutControl1.Controls.Add(this.labelControlPage);
             this.layoutControl1.Controls.Add(this.simpleButtonNextPage);
             this.layoutControl1.Controls.Add(this.simpleButtonPreviousPage);
             this.layoutControl1.Controls.Add(this.xtraScrollableControlPage);
@@ -106,6 +146,238 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControlReaderView";
             // 
+            // labelControlCloseBracket
+            // 
+            this.labelControlCloseBracket.Location = new System.Drawing.Point(359, 323);
+            this.labelControlCloseBracket.Name = "labelControlCloseBracket";
+            this.labelControlCloseBracket.Size = new System.Drawing.Size(4, 13);
+            this.labelControlCloseBracket.StyleController = this.layoutControl1;
+            this.labelControlCloseBracket.TabIndex = 22;
+            this.labelControlCloseBracket.Text = ")";
+            // 
+            // labelControlTotalPages
+            // 
+            this.labelControlTotalPages.Location = new System.Drawing.Point(337, 323);
+            this.labelControlTotalPages.Name = "labelControlTotalPages";
+            this.labelControlTotalPages.Size = new System.Drawing.Size(18, 13);
+            this.labelControlTotalPages.StyleController = this.layoutControl1;
+            this.labelControlTotalPages.TabIndex = 21;
+            this.labelControlTotalPages.Text = "235";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(329, 323);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(4, 13);
+            this.labelControl3.StyleController = this.layoutControl1;
+            this.labelControl3.TabIndex = 20;
+            this.labelControl3.Text = "/";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(319, 323);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(6, 13);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 19;
+            this.labelControl2.Text = "3";
+            // 
+            // labelControlOpenBracket
+            // 
+            this.labelControlOpenBracket.Location = new System.Drawing.Point(311, 323);
+            this.labelControlOpenBracket.Name = "labelControlOpenBracket";
+            this.labelControlOpenBracket.Size = new System.Drawing.Size(4, 13);
+            this.labelControlOpenBracket.StyleController = this.layoutControl1;
+            this.labelControlOpenBracket.TabIndex = 18;
+            this.labelControlOpenBracket.Text = "(";
+            // 
+            // simpleButtonOpenPages
+            // 
+            this.simpleButtonOpenPages.Location = new System.Drawing.Point(12, 323);
+            this.simpleButtonOpenPages.Name = "simpleButtonOpenPages";
+            this.simpleButtonOpenPages.Size = new System.Drawing.Size(51, 22);
+            this.simpleButtonOpenPages.StyleController = this.layoutControl1;
+            this.simpleButtonOpenPages.TabIndex = 17;
+            this.simpleButtonOpenPages.Text = "Sayfalar";
+            this.simpleButtonOpenPages.Click += new System.EventHandler(this.simpleButtonOpenPages_Click);
+            // 
+            // simpleButtonBracket
+            // 
+            this.simpleButtonBracket.Location = new System.Drawing.Point(582, 12);
+            this.simpleButtonBracket.Name = "simpleButtonBracket";
+            this.simpleButtonBracket.Size = new System.Drawing.Size(39, 22);
+            this.simpleButtonBracket.StyleController = this.layoutControl1;
+            this.simpleButtonBracket.TabIndex = 16;
+            this.simpleButtonBracket.Text = "Ayraç";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(257, 323);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(50, 20);
+            this.textEdit1.StyleController = this.layoutControl1;
+            this.textEdit1.TabIndex = 15;
+            // 
+            // simpleButtonNextPage
+            // 
+            this.simpleButtonNextPage.Location = new System.Drawing.Point(577, 323);
+            this.simpleButtonNextPage.Name = "simpleButtonNextPage";
+            this.simpleButtonNextPage.Size = new System.Drawing.Size(44, 22);
+            this.simpleButtonNextPage.StyleController = this.layoutControl1;
+            this.simpleButtonNextPage.TabIndex = 13;
+            this.simpleButtonNextPage.Text = "İleri";
+            // 
+            // simpleButtonPreviousPage
+            // 
+            this.simpleButtonPreviousPage.Location = new System.Drawing.Point(67, 323);
+            this.simpleButtonPreviousPage.Name = "simpleButtonPreviousPage";
+            this.simpleButtonPreviousPage.Size = new System.Drawing.Size(59, 22);
+            this.simpleButtonPreviousPage.StyleController = this.layoutControl1;
+            this.simpleButtonPreviousPage.TabIndex = 12;
+            this.simpleButtonPreviousPage.Text = "Geri";
+            // 
+            // xtraScrollableControlPage
+            // 
+            this.xtraScrollableControlPage.Controls.Add(this.gridControlPages);
+            this.xtraScrollableControlPage.Controls.Add(this.pictureEditPage);
+            this.xtraScrollableControlPage.Location = new System.Drawing.Point(12, 38);
+            this.xtraScrollableControlPage.Name = "xtraScrollableControlPage";
+            this.xtraScrollableControlPage.Size = new System.Drawing.Size(609, 281);
+            this.xtraScrollableControlPage.TabIndex = 11;
+            // 
+            // gridControlPages
+            // 
+            this.gridControlPages.DataSource = this.bindingSourcePages;
+            this.gridControlPages.Location = new System.Drawing.Point(45, 44);
+            this.gridControlPages.MainView = this.layoutViewPages;
+            this.gridControlPages.Name = "gridControlPages";
+            this.gridControlPages.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemPictureEdit1});
+            this.gridControlPages.Size = new System.Drawing.Size(400, 200);
+            this.gridControlPages.TabIndex = 1;
+            this.gridControlPages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.layoutViewPages});
+            this.gridControlPages.Visible = false;
+            // 
+            // bindingSourcePages
+            // 
+            this.bindingSourcePages.DataSource = typeof(Smartboard.Business.Entities.Thumbnail);
+            // 
+            // layoutViewPages
+            // 
+            this.layoutViewPages.CardMinSize = new System.Drawing.Size(207, 227);
+            this.layoutViewPages.Columns.AddRange(new DevExpress.XtraGrid.Columns.LayoutViewColumn[] {
+            this.colImage,
+            this.colBookId,
+            this.colPageId});
+            this.layoutViewPages.GridControl = this.gridControlPages;
+            this.layoutViewPages.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutViewField_colBookId,
+            this.layoutViewField_colPageId});
+            this.layoutViewPages.Name = "layoutViewPages";
+            this.layoutViewPages.OptionsView.ShowCardCaption = false;
+            this.layoutViewPages.OptionsView.ShowCardLines = false;
+            this.layoutViewPages.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
+            this.layoutViewPages.OptionsView.ShowHeaderPanel = false;
+            this.layoutViewPages.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.Row;
+            this.layoutViewPages.TemplateCard = this.layoutViewCard1;
+            // 
+            // colImage
+            // 
+            this.colImage.ColumnEdit = this.repositoryItemPictureEdit1;
+            this.colImage.FieldName = "Image";
+            this.colImage.LayoutViewField = this.layoutViewField_colImage;
+            this.colImage.Name = "colImage";
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
+            this.repositoryItemPictureEdit1.Click += new System.EventHandler(this.repositoryItemPictureEdit1_Click);
+            // 
+            // colBookId
+            // 
+            this.colBookId.FieldName = "BookId";
+            this.colBookId.LayoutViewField = this.layoutViewField_colBookId;
+            this.colBookId.Name = "colBookId";
+            // 
+            // colPageId
+            // 
+            this.colPageId.FieldName = "PageId";
+            this.colPageId.LayoutViewField = this.layoutViewField_colPageId;
+            this.colPageId.Name = "colPageId";
+            // 
+            // pictureEditPage
+            // 
+            this.pictureEditPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureEditPage.Location = new System.Drawing.Point(0, 0);
+            this.pictureEditPage.Name = "pictureEditPage";
+            this.pictureEditPage.Size = new System.Drawing.Size(609, 281);
+            this.pictureEditPage.TabIndex = 0;
+            // 
+            // simpleButtonContent
+            // 
+            this.simpleButtonContent.Location = new System.Drawing.Point(519, 12);
+            this.simpleButtonContent.Name = "simpleButtonContent";
+            this.simpleButtonContent.Size = new System.Drawing.Size(59, 22);
+            this.simpleButtonContent.StyleController = this.layoutControl1;
+            this.simpleButtonContent.TabIndex = 10;
+            this.simpleButtonContent.Text = "İçindekiler";
+            // 
+            // simpleButtonAddNote
+            // 
+            this.simpleButtonAddNote.Location = new System.Drawing.Point(461, 12);
+            this.simpleButtonAddNote.Name = "simpleButtonAddNote";
+            this.simpleButtonAddNote.Size = new System.Drawing.Size(54, 22);
+            this.simpleButtonAddNote.StyleController = this.layoutControl1;
+            this.simpleButtonAddNote.TabIndex = 9;
+            this.simpleButtonAddNote.Text = "Not Ekle";
+            // 
+            // simpleButtonBackLibrary
+            // 
+            this.simpleButtonBackLibrary.Location = new System.Drawing.Point(379, 12);
+            this.simpleButtonBackLibrary.Name = "simpleButtonBackLibrary";
+            this.simpleButtonBackLibrary.Size = new System.Drawing.Size(78, 22);
+            this.simpleButtonBackLibrary.StyleController = this.layoutControl1;
+            this.simpleButtonBackLibrary.TabIndex = 8;
+            this.simpleButtonBackLibrary.Text = "Kitaplığa Dön";
+            this.simpleButtonBackLibrary.Click += new System.EventHandler(this.simpleButtonBackLibrary_Click);
+            // 
+            // simpleButtonZoomMinus
+            // 
+            this.simpleButtonZoomMinus.Location = new System.Drawing.Point(297, 12);
+            this.simpleButtonZoomMinus.Name = "simpleButtonZoomMinus";
+            this.simpleButtonZoomMinus.Size = new System.Drawing.Size(78, 22);
+            this.simpleButtonZoomMinus.StyleController = this.layoutControl1;
+            this.simpleButtonZoomMinus.TabIndex = 7;
+            this.simpleButtonZoomMinus.Text = "Zoom(-)";
+            // 
+            // simpleButtonZoomPlus
+            // 
+            this.simpleButtonZoomPlus.Location = new System.Drawing.Point(215, 12);
+            this.simpleButtonZoomPlus.Name = "simpleButtonZoomPlus";
+            this.simpleButtonZoomPlus.Size = new System.Drawing.Size(78, 22);
+            this.simpleButtonZoomPlus.StyleController = this.layoutControl1;
+            this.simpleButtonZoomPlus.TabIndex = 6;
+            this.simpleButtonZoomPlus.Text = "Zoom(+)";
+            // 
+            // simpleButtonMultimediaSearch
+            // 
+            this.simpleButtonMultimediaSearch.Location = new System.Drawing.Point(117, 12);
+            this.simpleButtonMultimediaSearch.Name = "simpleButtonMultimediaSearch";
+            this.simpleButtonMultimediaSearch.Size = new System.Drawing.Size(94, 22);
+            this.simpleButtonMultimediaSearch.StyleController = this.layoutControl1;
+            this.simpleButtonMultimediaSearch.TabIndex = 5;
+            this.simpleButtonMultimediaSearch.Text = "Multimedya Ara";
+            // 
+            // simpleButtonPaint
+            // 
+            this.simpleButtonPaint.Location = new System.Drawing.Point(12, 12);
+            this.simpleButtonPaint.Name = "simpleButtonPaint";
+            this.simpleButtonPaint.Size = new System.Drawing.Size(101, 22);
+            this.simpleButtonPaint.StyleController = this.layoutControl1;
+            this.simpleButtonPaint.TabIndex = 4;
+            this.simpleButtonPaint.Text = "Çizim";
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroupReaderView";
@@ -122,26 +394,21 @@
             this.layoutControlItemPage,
             this.layoutControlItem9,
             this.layoutControlItem10,
-            this.layoutControlItem11,
             this.layoutControlItemPageText,
             this.layoutControlItem13,
             this.layoutControlItem8,
             this.emptySpaceItem1,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem11,
+            this.layoutControlItem12,
+            this.layoutControlItem14,
+            this.layoutControlItem15,
+            this.layoutControlItem16});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(633, 357);
             this.layoutControlGroup1.Text = "layoutControlGroupReaderView";
             this.layoutControlGroup1.TextVisible = false;
-            // 
-            // simpleButtonPaint
-            // 
-            this.simpleButtonPaint.Location = new System.Drawing.Point(12, 12);
-            this.simpleButtonPaint.Name = "simpleButtonPaint";
-            this.simpleButtonPaint.Size = new System.Drawing.Size(101, 22);
-            this.simpleButtonPaint.StyleController = this.layoutControl1;
-            this.simpleButtonPaint.TabIndex = 4;
-            this.simpleButtonPaint.Text = "Çizim";
             // 
             // layoutControlItem1
             // 
@@ -155,15 +422,6 @@
             this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
-            // simpleButtonMultimediaSearch
-            // 
-            this.simpleButtonMultimediaSearch.Location = new System.Drawing.Point(117, 12);
-            this.simpleButtonMultimediaSearch.Name = "simpleButtonMultimediaSearch";
-            this.simpleButtonMultimediaSearch.Size = new System.Drawing.Size(94, 22);
-            this.simpleButtonMultimediaSearch.StyleController = this.layoutControl1;
-            this.simpleButtonMultimediaSearch.TabIndex = 5;
-            this.simpleButtonMultimediaSearch.Text = "Multimedya Ara";
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.simpleButtonMultimediaSearch;
@@ -175,15 +433,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
-            // 
-            // simpleButtonZoomPlus
-            // 
-            this.simpleButtonZoomPlus.Location = new System.Drawing.Point(215, 12);
-            this.simpleButtonZoomPlus.Name = "simpleButtonZoomPlus";
-            this.simpleButtonZoomPlus.Size = new System.Drawing.Size(78, 22);
-            this.simpleButtonZoomPlus.StyleController = this.layoutControl1;
-            this.simpleButtonZoomPlus.TabIndex = 6;
-            this.simpleButtonZoomPlus.Text = "Zoom(+)";
             // 
             // layoutControlItem3
             // 
@@ -197,15 +446,6 @@
             this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
-            // simpleButtonZoomMinus
-            // 
-            this.simpleButtonZoomMinus.Location = new System.Drawing.Point(297, 12);
-            this.simpleButtonZoomMinus.Name = "simpleButtonZoomMinus";
-            this.simpleButtonZoomMinus.Size = new System.Drawing.Size(78, 22);
-            this.simpleButtonZoomMinus.StyleController = this.layoutControl1;
-            this.simpleButtonZoomMinus.TabIndex = 7;
-            this.simpleButtonZoomMinus.Text = "Zoom(-)";
-            // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButtonZoomMinus;
@@ -217,16 +457,6 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
-            // 
-            // simpleButtonBackLibrary
-            // 
-            this.simpleButtonBackLibrary.Location = new System.Drawing.Point(379, 12);
-            this.simpleButtonBackLibrary.Name = "simpleButtonBackLibrary";
-            this.simpleButtonBackLibrary.Size = new System.Drawing.Size(78, 22);
-            this.simpleButtonBackLibrary.StyleController = this.layoutControl1;
-            this.simpleButtonBackLibrary.TabIndex = 8;
-            this.simpleButtonBackLibrary.Text = "Kitaplığa Dön";
-            this.simpleButtonBackLibrary.Click += new System.EventHandler(this.simpleButtonBackLibrary_Click);
             // 
             // layoutControlItem5
             // 
@@ -240,15 +470,6 @@
             this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
-            // simpleButtonAddNote
-            // 
-            this.simpleButtonAddNote.Location = new System.Drawing.Point(461, 12);
-            this.simpleButtonAddNote.Name = "simpleButtonAddNote";
-            this.simpleButtonAddNote.Size = new System.Drawing.Size(54, 22);
-            this.simpleButtonAddNote.StyleController = this.layoutControl1;
-            this.simpleButtonAddNote.TabIndex = 9;
-            this.simpleButtonAddNote.Text = "Not Ekle";
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.simpleButtonAddNote;
@@ -260,15 +481,6 @@
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
-            // 
-            // simpleButtonContent
-            // 
-            this.simpleButtonContent.Location = new System.Drawing.Point(519, 12);
-            this.simpleButtonContent.Name = "simpleButtonContent";
-            this.simpleButtonContent.Size = new System.Drawing.Size(59, 22);
-            this.simpleButtonContent.StyleController = this.layoutControl1;
-            this.simpleButtonContent.TabIndex = 10;
-            this.simpleButtonContent.Text = "İçindekiler";
             // 
             // layoutControlItem7
             // 
@@ -282,13 +494,6 @@
             this.layoutControlItem7.TextToControlDistance = 0;
             this.layoutControlItem7.TextVisible = false;
             // 
-            // xtraScrollableControlPage
-            // 
-            this.xtraScrollableControlPage.Location = new System.Drawing.Point(12, 38);
-            this.xtraScrollableControlPage.Name = "xtraScrollableControlPage";
-            this.xtraScrollableControlPage.Size = new System.Drawing.Size(609, 281);
-            this.xtraScrollableControlPage.TabIndex = 11;
-            // 
             // layoutControlItemPage
             // 
             this.layoutControlItemPage.Control = this.xtraScrollableControlPage;
@@ -300,15 +505,6 @@
             this.layoutControlItemPage.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemPage.TextToControlDistance = 0;
             this.layoutControlItemPage.TextVisible = false;
-            // 
-            // simpleButtonPreviousPage
-            // 
-            this.simpleButtonPreviousPage.Location = new System.Drawing.Point(67, 323);
-            this.simpleButtonPreviousPage.Name = "simpleButtonPreviousPage";
-            this.simpleButtonPreviousPage.Size = new System.Drawing.Size(59, 22);
-            this.simpleButtonPreviousPage.StyleController = this.layoutControl1;
-            this.simpleButtonPreviousPage.TabIndex = 12;
-            this.simpleButtonPreviousPage.Text = "Geri";
             // 
             // layoutControlItem9
             // 
@@ -322,55 +518,17 @@
             this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
             // 
-            // simpleButtonNextPage
-            // 
-            this.simpleButtonNextPage.Location = new System.Drawing.Point(561, 323);
-            this.simpleButtonNextPage.Name = "simpleButtonNextPage";
-            this.simpleButtonNextPage.Size = new System.Drawing.Size(60, 22);
-            this.simpleButtonNextPage.StyleController = this.layoutControl1;
-            this.simpleButtonNextPage.TabIndex = 13;
-            this.simpleButtonNextPage.Text = "İleri";
-            // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButtonNextPage;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(549, 311);
+            this.layoutControlItem10.Location = new System.Drawing.Point(565, 311);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(64, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(48, 26);
             this.layoutControlItem10.Text = "layoutControlItem10";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextToControlDistance = 0;
             this.layoutControlItem10.TextVisible = false;
-            // 
-            // labelControlPage
-            // 
-            this.labelControlPage.Location = new System.Drawing.Point(311, 323);
-            this.labelControlPage.Name = "labelControlPage";
-            this.labelControlPage.Size = new System.Drawing.Size(39, 13);
-            this.labelControlPage.StyleController = this.layoutControl1;
-            this.labelControlPage.TabIndex = 14;
-            this.labelControlPage.Text = "( 3/198)";
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.labelControlPage;
-            this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(299, 311);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(43, 26);
-            this.layoutControlItem11.Text = "layoutControlItem11";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextToControlDistance = 0;
-            this.layoutControlItem11.TextVisible = false;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(257, 323);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(50, 20);
-            this.textEdit1.StyleController = this.layoutControl1;
-            this.textEdit1.TabIndex = 15;
             // 
             // layoutControlItemPageText
             // 
@@ -384,15 +542,6 @@
             this.layoutControlItemPageText.TextToControlDistance = 0;
             this.layoutControlItemPageText.TextVisible = false;
             // 
-            // simpleButtonBracket
-            // 
-            this.simpleButtonBracket.Location = new System.Drawing.Point(582, 12);
-            this.simpleButtonBracket.Name = "simpleButtonBracket";
-            this.simpleButtonBracket.Size = new System.Drawing.Size(39, 22);
-            this.simpleButtonBracket.StyleController = this.layoutControl1;
-            this.simpleButtonBracket.TabIndex = 16;
-            this.simpleButtonBracket.Text = "Ayraç";
-            // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.simpleButtonBracket;
@@ -404,16 +553,6 @@
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextToControlDistance = 0;
             this.layoutControlItem13.TextVisible = false;
-            // 
-            // simpleButtonOpenPages
-            // 
-            this.simpleButtonOpenPages.Location = new System.Drawing.Point(12, 323);
-            this.simpleButtonOpenPages.Name = "simpleButtonOpenPages";
-            this.simpleButtonOpenPages.Size = new System.Drawing.Size(51, 22);
-            this.simpleButtonOpenPages.StyleController = this.layoutControl1;
-            this.simpleButtonOpenPages.TabIndex = 17;
-            this.simpleButtonOpenPages.Text = "Sayfalar";
-            this.simpleButtonOpenPages.Click += new System.EventHandler(this.simpleButtonOpenPages_Click);
             // 
             // layoutControlItem8
             // 
@@ -431,9 +570,11 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(342, 311);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(355, 311);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(207, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(210, 26);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -447,6 +588,110 @@
             this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.labelControlOpenBracket;
+            this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
+            this.layoutControlItem11.Location = new System.Drawing.Point(299, 311);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(8, 26);
+            this.layoutControlItem11.Text = "layoutControlItem11";
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextToControlDistance = 0;
+            this.layoutControlItem11.TextVisible = false;
+            // 
+            // layoutControlItem12
+            // 
+            this.layoutControlItem12.Control = this.labelControl2;
+            this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
+            this.layoutControlItem12.Location = new System.Drawing.Point(307, 311);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(10, 26);
+            this.layoutControlItem12.Text = "layoutControlItem12";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem12.TextToControlDistance = 0;
+            this.layoutControlItem12.TextVisible = false;
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.labelControl3;
+            this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
+            this.layoutControlItem14.Location = new System.Drawing.Point(317, 311);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(8, 26);
+            this.layoutControlItem14.Text = "layoutControlItem14";
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextToControlDistance = 0;
+            this.layoutControlItem14.TextVisible = false;
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.labelControlTotalPages;
+            this.layoutControlItem15.CustomizationFormText = "layoutControlItem15";
+            this.layoutControlItem15.Location = new System.Drawing.Point(325, 311);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(22, 26);
+            this.layoutControlItem15.Text = "layoutControlItem15";
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextToControlDistance = 0;
+            this.layoutControlItem15.TextVisible = false;
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.labelControlCloseBracket;
+            this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
+            this.layoutControlItem16.Location = new System.Drawing.Point(347, 311);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(8, 26);
+            this.layoutControlItem16.Text = "layoutControlItem16";
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextToControlDistance = 0;
+            this.layoutControlItem16.TextVisible = false;
+            // 
+            // backgroundWorkerPageThumbnails
+            // 
+            this.backgroundWorkerPageThumbnails.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerPageThumbnails_DoWork);
+            this.backgroundWorkerPageThumbnails.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerPageThumbnails_RunWorkerCompleted);
+            // 
+            // layoutViewCard1
+            // 
+            this.layoutViewCard1.CustomizationFormText = "TemplateCard";
+            this.layoutViewCard1.ExpandButtonLocation = DevExpress.Utils.GroupElementLocation.AfterText;
+            this.layoutViewCard1.GroupBordersVisible = false;
+            this.layoutViewCard1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutViewField_colImage});
+            this.layoutViewCard1.Name = "layoutViewCard1";
+            this.layoutViewCard1.OptionsItemText.TextToControlDistance = 5;
+            this.layoutViewCard1.Text = "TemplateCard";
+            // 
+            // layoutViewField_colImage
+            // 
+            this.layoutViewField_colImage.EditorPreferredWidth = 183;
+            this.layoutViewField_colImage.Location = new System.Drawing.Point(0, 0);
+            this.layoutViewField_colImage.Name = "layoutViewField_colImage";
+            this.layoutViewField_colImage.Size = new System.Drawing.Size(187, 207);
+            this.layoutViewField_colImage.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutViewField_colImage.TextToControlDistance = 0;
+            this.layoutViewField_colImage.TextVisible = false;
+            // 
+            // layoutViewField_colBookId
+            // 
+            this.layoutViewField_colBookId.EditorPreferredWidth = 154;
+            this.layoutViewField_colBookId.Location = new System.Drawing.Point(0, 0);
+            this.layoutViewField_colBookId.Name = "layoutViewField_colBookId";
+            this.layoutViewField_colBookId.Size = new System.Drawing.Size(203, 45);
+            this.layoutViewField_colBookId.TextSize = new System.Drawing.Size(41, 20);
+            this.layoutViewField_colBookId.TextToControlDistance = 5;
+            // 
+            // layoutViewField_colPageId
+            // 
+            this.layoutViewField_colPageId.EditorPreferredWidth = 154;
+            this.layoutViewField_colPageId.Location = new System.Drawing.Point(0, 0);
+            this.layoutViewField_colPageId.Name = "layoutViewField_colPageId";
+            this.layoutViewField_colPageId.Size = new System.Drawing.Size(203, 45);
+            this.layoutViewField_colPageId.TextSize = new System.Drawing.Size(41, 20);
+            this.layoutViewField_colPageId.TextToControlDistance = 5;
+            // 
             // ReaderView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,8 +702,16 @@
             this.Name = "ReaderView";
             this.Text = "ReaderView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ReaderView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.xtraScrollableControlPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourcePages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewPages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditPage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -470,13 +723,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPageText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colBookId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutViewField_colPageId)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,7 +746,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControlPage;
         private DevExpress.XtraEditors.SimpleButton simpleButtonNextPage;
         private DevExpress.XtraEditors.SimpleButton simpleButtonPreviousPage;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControlPage;
@@ -507,7 +766,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemPage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemPageText;
         private DevExpress.XtraEditors.SimpleButton simpleButtonBracket;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
@@ -515,5 +773,28 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.PictureEdit pictureEditPage;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerPageThumbnails;
+        private System.Windows.Forms.BindingSource bindingSourcePages;
+        private DevExpress.XtraEditors.LabelControl labelControlCloseBracket;
+        private DevExpress.XtraEditors.LabelControl labelControlTotalPages;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControlOpenBracket;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
+        private DevExpress.XtraGrid.GridControl gridControlPages;
+        private DevExpress.XtraGrid.Views.Layout.LayoutView layoutViewPages;
+        private DevExpress.XtraGrid.Columns.LayoutViewColumn colBookId;
+        private DevExpress.XtraGrid.Columns.LayoutViewColumn colPageId;
+        private DevExpress.XtraGrid.Columns.LayoutViewColumn colImage;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_colImage;
+        private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_colBookId;
+        private DevExpress.XtraGrid.Views.Layout.LayoutViewField layoutViewField_colPageId;
+        private DevExpress.XtraGrid.Views.Layout.LayoutViewCard layoutViewCard1;
     }
 }

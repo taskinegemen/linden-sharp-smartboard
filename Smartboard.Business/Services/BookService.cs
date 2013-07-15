@@ -44,5 +44,19 @@ namespace Smartboard.Business.Services
             return repo.GetPage(bookId, pageNo);
         }
 
+        public List<Thumbnail> GetPageThumbnails(int bookId)
+        {
+            List<Thumbnail> thumbnails = null;
+            BookRepository repo = new BookRepository();
+
+            thumbnails = repo.GetPageThumbnails(bookId);
+
+            if (thumbnails == null)
+            {
+                throw new BusinessException("Kitap sayfaları okunurken hata oluştu.");
+            }
+            return thumbnails;
+        }
+
     }
 }

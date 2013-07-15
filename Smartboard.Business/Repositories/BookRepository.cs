@@ -103,5 +103,32 @@ namespace Smartboard.Business.Repositories
             return page;
         }
 
+        public List<Thumbnail> GetPageThumbnails(int bookId)
+        {
+            List<Thumbnail> thumbnails = null;
+            try
+            {
+                DirectoryInfo dir = new DirectoryInfo(RepositoryPath.Path + "thumbnails\\" + bookId.ToString());
+                thumbnails = new List<Thumbnail>();
+                foreach (FileInfo file in dir.GetFiles())
+                {
+                    Thumbnail thumbnail = new Thumbnail();
+
+                    string[] arr1 = file.Name.Split('-');
+                    string[] arr2 = arr1[1].Split('.');
+
+                    thumbnail.PageId = int.Parse(arr2[0]);
+                    thumbnail.Image = Image.FromFile(RepositoryPath.Path + "thumbnails\\" + bookId.ToString() + "\\" + file.Name);
+
+                    thumbnails.Add(thumbnail);
+                }
+                return thumbnails;
+            }
+            catch (Exception exc)
+            {
+                return null;
+            }
+        }
+
     }
 }

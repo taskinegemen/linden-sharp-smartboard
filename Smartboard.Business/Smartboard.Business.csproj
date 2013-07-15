@@ -57,6 +57,7 @@
     <Compile Include="Entities\Page.cs" />
     <Compile Include="Entities\PageItem.cs" />
     <Compile Include="Entities\PageWord.cs" />
+    <Compile Include="Entities\Thumbnail.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BookRepository.cs" />

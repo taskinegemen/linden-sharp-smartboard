@@ -8,6 +8,6 @@ namespace Smartboard.Business.Common
 {
     public static class RepositoryPath
     {
-        public const string Path = "docs/";
+        public const string Path = "docs\\";
     }
 }

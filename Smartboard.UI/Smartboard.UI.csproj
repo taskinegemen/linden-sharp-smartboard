@@ -149,6 +149,7 @@
     <None Include="Properties\DataSources\Smartboard.Business.Entities.Course.datasource" />
     <None Include="Properties\DataSources\Smartboard.Business.Entities.Multimedia.datasource" />
     <None Include="Properties\DataSources\Smartboard.Business.Entities.Note.datasource" />
+    <None Include="Properties\DataSources\Smartboard.Business.Entities.Thumbnail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
