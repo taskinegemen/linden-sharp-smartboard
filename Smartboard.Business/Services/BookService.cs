@@ -41,7 +41,15 @@ namespace Smartboard.Business.Services
         public Page GetPage(int bookId, int pageNo)
         {
             BookRepository repo = new BookRepository();
-            return repo.GetPage(bookId, pageNo);
+            Page page = null;
+
+            page = repo.GetPage(bookId, pageNo);
+
+            if (page == null)
+            {
+                throw new BusinessException("Sayfa okunamadı.");
+            }
+            return page;
         }
 
         public List<Thumbnail> GetPageThumbnails(int bookId)

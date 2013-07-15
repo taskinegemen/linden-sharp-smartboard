@@ -20,12 +20,15 @@ namespace Smartboard.UI.Views
 
         private ReaderPresenter presenter = new ReaderPresenter();
 
+        private int zoomPercent = 20;
+        private int oldPageNo = 1;
         #endregion
 
         #region public members
 
         public Book Book;
         public Page Page;
+        public int PageId = 1;
 
         #endregion
 
@@ -72,6 +75,9 @@ namespace Smartboard.UI.Views
 
             this.gridControlPages.Width = this.pictureEditPage.Width;
             this.gridControlPages.Height = 300;
+
+            // get first page
+            this.ChangePage(1);
         }
 
         // get page thumbnails
@@ -85,8 +91,11 @@ namespace Smartboard.UI.Views
             // now background worker finished its job.
             // set book page thumbnails
             this.bindingSourcePages.DataSource = this.Book.PageThumbnails;
+
+            this.labelControlTotalPages.Text = this.Book.PageThumbnails.Count.ToString();
         }
 
+        // get selected page
         private void repositoryItemPictureEdit1_Click(object sender, EventArgs e)
         {
             PictureEdit edit = sender as PictureEdit;
@@ -98,15 +107,89 @@ namespace Smartboard.UI.Views
             {
                 Thumbnail thumbnail = view.GetRow(rowHandle) as Thumbnail;
 
-                MessageBox.Show(thumbnail.PageId.ToString());
+                this.ChangePage(thumbnail);
             }
             this.gridControlPages.Visible = false;
         }
 
-        // get clicked page
-        
+        private void simpleButtonZoomPlus_Click(object sender, EventArgs e)
+        {
+            this.pictureEditPage.Properties.ZoomPercent += this.zoomPercent;
+        }
+
+        private void simpleButtonZoomMinus_Click(object sender, EventArgs e)
+        {
+            this.pictureEditPage.Properties.ZoomPercent -= this.zoomPercent;
+        }
+
+        private void textEditPage_TextChanged(object sender, EventArgs e)
+        {
+            int pageNo;
+            if (this.Page.PageNo.ToString() == this.textEditPage.Text) return;
+            int.TryParse(textEditPage.Text, out pageNo);
+
+            if (pageNo > 0 && pageNo <= this.Book.PageThumbnails.Count)
+            {
+                Thumbnail thumbnail = this.Book.PageThumbnails.Find(p => p.PageId == pageNo);
+                this.ChangePage(thumbnail);
+                this.oldPageNo = thumbnail.PageId;
+            }
+            else
+            {
+                this.ChangePage(this.oldPageNo);
+            }
+        }
+
+        private void simpleButtonNextPage_Click(object sender, EventArgs e)
+        {
+            if (this.PageId < this.Book.PageThumbnails.Count)
+            {
+                this.ChangePage(++this.PageId);
+            }
+        }
+
+        private void simpleButtonPreviousPage_Click(object sender, EventArgs e)
+        {
+            if (this.PageId > 1)
+            {
+                this.ChangePage(--this.PageId);
+            }
+        }
 
         #endregion
+
+        #region private methods
+
+        private void ChangePage(Thumbnail thumbnail)
+        {
+            this.Page = this.presenter.GetPage(this.Book, thumbnail.PageId);
+
+            this.SetPictureEdit();
+        }
+
+        private void ChangePage(int pageId)
+        {
+            this.Page = this.presenter.GetPage(this.Book, pageId);
+
+            this.SetPictureEdit();
+        }
+
+        private void SetPictureEdit()
+        {
+            this.pictureEditPage.Image = this.Page.Image;
+
+            this.pictureEditPage.Properties.AllowScrollViaMouseDrag = true;
+            this.pictureEditPage.Properties.ShowScrollBars = true;
+
+            this.labelControlCurrentPage.Text = this.Page.PageNo.ToString();
+            this.textEditPage.Text = this.Page.PageNo.ToString();
+
+            this.PageId = this.Page.PageNo;
+        }
+
+        #endregion
+
+        
 
         
 

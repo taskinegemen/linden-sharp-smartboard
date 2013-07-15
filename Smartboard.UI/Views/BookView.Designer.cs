@@ -84,7 +84,7 @@
             this.lstImages.Size = new System.Drawing.Size(150, 392);
             this.lstImages.TabIndex = 0;
             this.lstImages.UseCompatibleStateImageBehavior = false;
-            this.lstImages.Click += new System.EventHandler(this.GetPage);
+
             // 
             // toolStrip1
             // 

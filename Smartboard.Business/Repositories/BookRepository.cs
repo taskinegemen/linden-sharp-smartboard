@@ -86,21 +86,27 @@ namespace Smartboard.Business.Repositories
 
         public Page GetPage(int bookId, int pageNo)
         {
-            Page page = new Page();
-
-            using (StreamReader reader
-                = new StreamReader(RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".json"))
+            Page page = null;
+            try
             {
-                string json = reader.ReadToEnd();
+                using (StreamReader reader
+                    = new StreamReader(RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".json"))
+                {
+                    string json = reader.ReadToEnd();
 
-                page = JsonConvert.DeserializeObject<Page>(json);
-                page.ImagePath = RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".jpg";
-                page.ThumbnailPath = RepositoryPath.Path + "thumbnails\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".jpg";
+                    page = JsonConvert.DeserializeObject<Page>(json);
+                    page.ImagePath = RepositoryPath.Path + "pages\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".jpg";
+                    page.ThumbnailPath = RepositoryPath.Path + "thumbnails\\" + bookId.ToString() + @"\" + pageNo.ToString() + ".jpg";
 
-                page.ReadBefore = true;
+                    page.Image = Image.FromFile(page.ImagePath);
+                    
+                }
+                return page;
             }
-
-            return page;
+            catch (Exception exc)
+            {
+                return null;
+            }
         }
 
         public List<Thumbnail> GetPageThumbnails(int bookId)

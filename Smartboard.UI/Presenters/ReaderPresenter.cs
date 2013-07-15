@@ -24,6 +24,28 @@ namespace Smartboard.UI.Presenters
                 MessageBox.Show(exc.Message);
             }
         }
+
+        public Page GetPage(Book book, int pageId)
+        {
+            try
+            {
+                Page page = book.Pages.Find(p => p.PageNo == pageId);
+                if (page == null)
+                {
+                    BookService service = new BookService();
+                    return service.GetPage(book.BookId, pageId);
+                }
+                else
+                {
+                    return page;
+                }
+            }
+            catch (BusinessException exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            return null;
+        }
     }
 
 

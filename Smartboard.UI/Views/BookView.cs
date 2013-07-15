@@ -96,27 +96,6 @@ namespace Smartboard.UI.Views
             this.lstImages.LargeImageList = this.imgLstPages;
         }
 
-        private void GetPage(object sender, EventArgs e)
-        {
-            ListViewItem item = this.lstImages.SelectedItems[0];
-            int pageNo = int.Parse(item.Name);
-
-            int pageIndex = this.book.Pages.FindIndex(p => p.PageNo == pageNo);
-            Page page = this.book.Pages[pageIndex];
-
-            if ( !page.ReadBefore )
-            {
-                page = this.presenter.GetPage(this.book.BookId, pageNo);
-                this.book.Pages[pageIndex] = page;
-            }
-            
-            this.picBoxPage.Width = page.Width;
-            this.picBoxPage.Height = page.Height;
-
-            this.picBoxPage.Image = Image.FromFile(page.ImagePath);
-            this.picBoxPage.Size = this.picBoxPage.Image.Size;
-        }
-
         private void panel1_Resize(object sender, EventArgs e)
         {
             Panel panel = sender as Panel;
