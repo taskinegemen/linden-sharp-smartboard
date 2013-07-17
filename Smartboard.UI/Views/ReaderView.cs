@@ -10,6 +10,11 @@ using Smartboard.UI.Presenters;
 using Smartboard.Business.Entities;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Layout;
+using System.Diagnostics;
+using System.Drawing.Imaging;
+using Smartboard.UI.ToolBoxItems.PaintMenu;
+using DevExpress.XtraEditors.ViewInfo;
+using System.Reflection;
 
 namespace Smartboard.UI.Views
 {
@@ -20,8 +25,20 @@ namespace Smartboard.UI.Views
 
         private ReaderPresenter presenter = new ReaderPresenter();
 
-        private int zoomPercent = 20;
+        private int zoomPercentInc = 20;
         private int oldPageNo = 1;
+
+        private Pen pen = new Pen(Color.Black);
+        private SolidBrush solidBrush = new SolidBrush(Color.Black);
+
+        private bool paintMode = false;
+        private bool canPaint = false;
+
+        private ThicknessWrapper thickness = new ThicknessWrapper();
+
+        private int zoomPercent = 0;
+        private int oldZoomPercent = 0;
+        
         #endregion
 
         #region public members
@@ -43,6 +60,7 @@ namespace Smartboard.UI.Views
         {
             InitializeComponent();
             this.Book = book;
+            this.oldZoomPercent = this.zoomPercent = this.pictureEditPage.Properties.ZoomPercent;
         }
 
         #endregion
@@ -66,15 +84,27 @@ namespace Smartboard.UI.Views
             this.backgroundWorkerPageThumbnails.RunWorkerAsync();
 
             // set location of grid control pages
-            Point point = this.pictureEditPage.Location;
+            Point point = this.panelControl1.Location;
 
             int y = point.Y;
-            point.Y = (y + this.pictureEditPage.Height) - 300;
-
+            point.Y = 
+                (y + this.panelControl1.Height) - 
+                (300 + this.emptySpaceItem2.Height + System.Windows.Forms.SystemInformation.HorizontalScrollBarHeight);
+            point.X = 0;
             this.gridControlPages.Location = point;
 
-            this.gridControlPages.Width = this.pictureEditPage.Width;
+            this.gridControlPages.Width = this.panelControl1.Width;
             this.gridControlPages.Height = 300;
+
+            // set paint menu position
+            this.paintMenu.Location = new Point(2, (this.Height / 2) - 200);
+
+            this.paintMenu.Pen = this.pen;
+            this.paintMenu.SolidBrush = this.solidBrush;
+            this.paintMenu.Thickness = this.thickness;
+
+            // set picture edit
+            this.pictureEditPage.SendToBack();
 
             // get first page
             this.ChangePage(1);
@@ -114,12 +144,17 @@ namespace Smartboard.UI.Views
 
         private void simpleButtonZoomPlus_Click(object sender, EventArgs e)
         {
-            this.pictureEditPage.Properties.ZoomPercent += this.zoomPercent;
+            this.pictureEditPage.Properties.ZoomPercent += this.zoomPercentInc;
+
+            MessageBox.Show(this.pictureEditPage.Image.Width.ToString());
+
         }
 
         private void simpleButtonZoomMinus_Click(object sender, EventArgs e)
         {
-            this.pictureEditPage.Properties.ZoomPercent -= this.zoomPercent;
+            this.pictureEditPage.Properties.ZoomPercent -= this.zoomPercentInc;
+
+            MessageBox.Show(this.pictureEditPage.Image.Width.ToString());
         }
 
         private void textEditPage_TextChanged(object sender, EventArgs e)
@@ -156,6 +191,78 @@ namespace Smartboard.UI.Views
             }
         }
 
+        private void textEditPage_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("osk.exe");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Klavye açılamadı.");
+            }
+        }
+
+        private void simpleButtonPaint_Click(object sender, EventArgs e)
+        {
+            if (this.paintMenu.Visible)
+            {
+                this.pictureEditPage.Properties.ZoomPercent = this.oldZoomPercent;
+                this.paintMenu.Visible = false;
+                this.RemovePaint();
+            }
+            else
+            {
+                this.oldZoomPercent = this.pictureEditPage.Properties.ZoomPercent;
+                this.pictureEditPage.Properties.ZoomPercent = this.zoomPercent;
+
+                this.paintMenu.Visible = true;
+                this.SetPaint();
+            }
+        }
+
+        private void pictureEditPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (this.paintMode)
+            {
+                this.canPaint = true;
+            }
+        }
+
+        private void pictureEditPage_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (this.paintMode)
+            {
+                this.canPaint = false;
+            }
+        }
+
+        private void pictureEditPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (this.canPaint)
+            {
+                int x = e.X;
+                int y = e.Y;
+
+                Graphics g = Graphics.FromImage(this.pictureEditPage.Image);
+
+                PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+                PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+                pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+
+                x += fHScrollBarPosition - viewInfo.PictureStartX;
+                y += fVScrollBarPosition;
+
+                g.FillRectangle(this.solidBrush, x, y, this.thickness.Thickness, this.thickness.Thickness);
+
+                this.pictureEditPage.Invalidate();
+
+                g.Dispose();
+            }
+        }
+
         #endregion
 
         #region private methods
@@ -187,11 +294,23 @@ namespace Smartboard.UI.Views
             this.PageId = this.Page.PageNo;
         }
 
+        private void SetPaint()
+        {
+            this.pictureEditPage.Properties.AllowScrollViaMouseDrag = false;
+            this.paintMode = true;
+
+           
+
+        }
+
+        private void RemovePaint()
+        {
+            this.pictureEditPage.Properties.AllowScrollViaMouseDrag = true;
+            this.paintMode = false;
+        }
+
         #endregion
 
-        
-
-        
 
     }
 }

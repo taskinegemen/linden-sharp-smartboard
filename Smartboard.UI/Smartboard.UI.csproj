@@ -77,6 +77,12 @@
     <Compile Include="Presenters\MainViewPresenter.cs" />
     <Compile Include="Presenters\ReaderPresenter.cs" />
     <Compile Include="Presenters\SearchPresenter.cs" />
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolBoxItems\ImageBox\ImageBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,6 +92,12 @@
     <Compile Include="ToolBoxItems\ImageBox\ImageBoxBorderStyle.cs" />
     <Compile Include="ToolBoxItems\ImageBox\ImageBoxGridDisplayMode.cs" />
     <Compile Include="ToolBoxItems\ImageBox\ImageBoxGridScale.cs" />
+    <Compile Include="ToolBoxItems\PaintMenu\PaintMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolBoxItems\PaintMenu\PaintMenu.Designer.cs">
+      <DependentUpon>PaintMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\BookView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +131,12 @@
       <DependentUpon>SearchView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolBoxItems\PaintMenu\PaintMenu.resx">
+      <DependentUpon>PaintMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\BookView.resx">
       <DependentUpon>BookView.cs</DependentUpon>
     </EmbeddedResource>

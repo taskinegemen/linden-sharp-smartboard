@@ -1,4 +1,5 @@
-﻿namespace Smartboard.UI.Views
+﻿using Smartboard.ToolBoxItems;
+namespace Smartboard.UI.Views
 {
     partial class BookView
     {
@@ -157,7 +158,7 @@
         private System.Windows.Forms.ImageList imgLstPages;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListView lstImages;
-        private ToolBoxItems.ImageBox picBoxPage;
+        private ImageBox picBoxPage;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Panel panel1;

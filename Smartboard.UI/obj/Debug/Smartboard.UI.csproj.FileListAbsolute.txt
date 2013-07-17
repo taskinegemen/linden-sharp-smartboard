@@ -34,3 +34,5 @@ C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.Views.ReaderV
 C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.Views.SearchView.resources
 C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.csproj.GenerateResource.Cache
 C:\c_ouz\repositories\linden\Smartboard.UI\obj\Debug\Smartboard.UI.exe.licenses
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.SplashScreen1.resources
+C:\Users\korkmaz\Desktop\repositories\linden-sharp-smartboard\Smartboard.UI\obj\Debug\Smartboard.UI.ToolBoxItems.PaintMenu.PaintMenu.resources
