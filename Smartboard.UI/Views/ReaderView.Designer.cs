@@ -404,6 +404,7 @@
             this.simpleButtonAddNote.StyleController = this.layoutControl1;
             this.simpleButtonAddNote.TabIndex = 9;
             this.simpleButtonAddNote.Text = "Not Ekle";
+            this.simpleButtonAddNote.Click += new System.EventHandler(this.simpleButtonAddNote_Click);
             // 
             // simpleButtonBackLibrary
             // 

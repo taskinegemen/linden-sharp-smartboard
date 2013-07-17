@@ -20,7 +20,6 @@ namespace Smartboard.UI.Views
 {
     public partial class ReaderView : DevExpress.XtraEditors.XtraForm
     {
-
         #region private members
 
         private ReaderPresenter presenter = new ReaderPresenter();
@@ -38,7 +37,19 @@ namespace Smartboard.UI.Views
 
         private int zoomPercent = 0;
         private int oldZoomPercent = 0;
-        
+
+        private bool addNote = false;
+        private bool canAddNote = false;
+
+        private int addNoteFirstX = 0;
+        private int addNoteFirstY = 0;
+
+        private int _addNoteFirstX = 0;
+        private int _addNoteFirstY = 0;
+
+        private int addNoteSecondX = 0;
+        private int addNoteSecondY = 0;
+
         #endregion
 
         #region public members
@@ -227,6 +238,25 @@ namespace Smartboard.UI.Views
             {
                 this.canPaint = true;
             }
+            else if (this.addNote)
+            {
+                this.addNoteFirstX = e.X;
+                this.addNoteFirstY = e.Y;
+
+                PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+                PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+                pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+
+                this.addNoteFirstX += fHScrollBarPosition - viewInfo.PictureStartX;
+                this.addNoteFirstY += fVScrollBarPosition;
+
+                this._addNoteFirstX = e.X;
+                this._addNoteFirstY = e.Y;
+
+                this.canAddNote = true;
+            }
         }
 
         private void pictureEditPage_MouseUp(object sender, MouseEventArgs e)
@@ -234,6 +264,40 @@ namespace Smartboard.UI.Views
             if (this.paintMode)
             {
                 this.canPaint = false;
+            }
+            else if (this.addNote)
+            {
+                this.addNote = false;
+                this.canAddNote = false;
+
+                this.addNoteSecondX = e.X;
+                this.addNoteSecondY = e.Y;
+
+                this.pictureEditPage.Properties.ZoomPercent = this.oldZoomPercent;
+                this.pictureEditPage.Properties.AllowScrollViaMouseDrag = true;
+
+                Graphics g = Graphics.FromImage(this.pictureEditPage.Image);
+
+                PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+                PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+                pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+
+                this.addNoteSecondX += fHScrollBarPosition - viewInfo.PictureStartX;
+                this.addNoteSecondY += fVScrollBarPosition;
+
+                Pen pen = new Pen(Color.Black, 1);
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+
+                g.DrawRectangle(pen, new Rectangle(this.addNoteFirstX, this.addNoteFirstY, this.addNoteSecondX - this.addNoteFirstX, this.addNoteSecondY - this.addNoteFirstY));
+
+                this.pictureEditPage.Invalidate();
+
+                g.Dispose();
+
+
+                this.DoAddNoteCrop();
             }
         }
 
@@ -261,6 +325,25 @@ namespace Smartboard.UI.Views
 
                 g.Dispose();
             }
+            else if (this.canAddNote)
+            {
+                this.pictureEditPage.Refresh();
+                Graphics g = this.pictureEditPage.CreateGraphics();
+                
+                Pen pen = new Pen(Color.Black, 1);
+                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+                g.DrawRectangle(pen, this._addNoteFirstX, this._addNoteFirstY, e.X - this._addNoteFirstX, e.Y - this._addNoteFirstY);
+
+                g.Dispose();
+            }
+        }
+
+        private void simpleButtonAddNote_Click(object sender, EventArgs e)
+        {
+            this.oldZoomPercent = this.pictureEditPage.Properties.ZoomPercent;
+            this.pictureEditPage.Properties.ZoomPercent = this.zoomPercent;
+            this.addNote = true;
+            this.pictureEditPage.Properties.AllowScrollViaMouseDrag = false;
         }
 
         #endregion
@@ -298,9 +381,6 @@ namespace Smartboard.UI.Views
         {
             this.pictureEditPage.Properties.AllowScrollViaMouseDrag = false;
             this.paintMode = true;
-
-           
-
         }
 
         private void RemovePaint()
@@ -309,8 +389,12 @@ namespace Smartboard.UI.Views
             this.paintMode = false;
         }
 
-        #endregion
+        private void DoAddNoteCrop()
+        {
+            
+        }
 
+        #endregion
 
     }
 }
