@@ -50,6 +50,10 @@ namespace Smartboard.UI.Views
         private int addNoteSecondX = 0;
         private int addNoteSecondY = 0;
 
+        private Rectangle addNoteRect;
+
+        Bitmap cropped;
+
         #endregion
 
         #region public members
@@ -70,6 +74,7 @@ namespace Smartboard.UI.Views
         public ReaderView(Book book)
         {
             InitializeComponent();
+            //InitTransparentPictureBox();
             this.Book = book;
             this.oldZoomPercent = this.zoomPercent = this.pictureEditPage.Properties.ZoomPercent;
         }
@@ -119,6 +124,7 @@ namespace Smartboard.UI.Views
 
             // get first page
             this.ChangePage(1);
+
         }
 
         // get page thumbnails
@@ -243,17 +249,8 @@ namespace Smartboard.UI.Views
                 this.addNoteFirstX = e.X;
                 this.addNoteFirstY = e.Y;
 
-                PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
-                PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
-                int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
-                pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
-                int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
-
-                this.addNoteFirstX += fHScrollBarPosition - viewInfo.PictureStartX;
-                this.addNoteFirstY += fVScrollBarPosition;
-
-                this._addNoteFirstX = e.X;
-                this._addNoteFirstY = e.Y;
+                this.addNoteRect = new Rectangle(this.addNoteFirstX, this.addNoteFirstY, 0, 0);
+                this.pictureEditPage.Invalidate();
 
                 this.canAddNote = true;
             }
@@ -270,34 +267,7 @@ namespace Smartboard.UI.Views
                 this.addNote = false;
                 this.canAddNote = false;
 
-                this.addNoteSecondX = e.X;
-                this.addNoteSecondY = e.Y;
-
-                this.pictureEditPage.Properties.ZoomPercent = this.oldZoomPercent;
-                this.pictureEditPage.Properties.AllowScrollViaMouseDrag = true;
-
-                Graphics g = Graphics.FromImage(this.pictureEditPage.Image);
-
-                PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
-                PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
-                int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
-                pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
-                int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
-
-                this.addNoteSecondX += fHScrollBarPosition - viewInfo.PictureStartX;
-                this.addNoteSecondY += fVScrollBarPosition;
-
-                Pen pen = new Pen(Color.Black, 1);
-                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-
-                g.DrawRectangle(pen, new Rectangle(this.addNoteFirstX, this.addNoteFirstY, this.addNoteSecondX - this.addNoteFirstX, this.addNoteSecondY - this.addNoteFirstY));
-
-                this.pictureEditPage.Invalidate();
-
-                g.Dispose();
-
-
-                this.DoAddNoteCrop();
+                this.CropPage();
             }
         }
 
@@ -325,16 +295,33 @@ namespace Smartboard.UI.Views
 
                 g.Dispose();
             }
-            else if (this.canAddNote)
+            else if (this.canAddNote && e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                this.pictureEditPage.Refresh();
-                Graphics g = this.pictureEditPage.CreateGraphics();
-                
-                Pen pen = new Pen(Color.Black, 1);
-                pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-                g.DrawRectangle(pen, this._addNoteFirstX, this._addNoteFirstY, e.X - this._addNoteFirstX, e.Y - this._addNoteFirstY);
+                int x = e.X;
+                int y = e.Y;
 
-                g.Dispose();
+                //PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+                //PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                //int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+                //pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+                //int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+
+                //x += fHScrollBarPosition - viewInfo.PictureStartX;
+                //y += fVScrollBarPosition;
+
+                this.addNoteRect =
+                    new Rectangle(this.addNoteRect.Left, this.addNoteRect.Top, x - this.addNoteRect.Left, y - this.addNoteRect.Top);
+                this.pictureEditPage.Invalidate();
+
+                //this.pictureEditPage.Refresh();
+
+                //Graphics g = this.pictureEditPage.CreateGraphics();
+
+                //Pen pen = new Pen(Color.Red, 2);
+                //pen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+                //g.DrawRectangle(pen, this._addNoteFirstX, this._addNoteFirstY, e.X - this._addNoteFirstX, e.Y - this._addNoteFirstY);
+
+                //g.Dispose();
             }
         }
 
@@ -344,6 +331,17 @@ namespace Smartboard.UI.Views
             this.pictureEditPage.Properties.ZoomPercent = this.zoomPercent;
             this.addNote = true;
             this.pictureEditPage.Properties.AllowScrollViaMouseDrag = false;
+        }
+
+        private void pictureEditPage_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.canAddNote)
+            {
+                using (Pen pen = new Pen(Color.Red, 2))
+                {
+                    e.Graphics.DrawRectangle(pen, this.addNoteRect);
+                }
+            }
         }
 
         #endregion
@@ -375,6 +373,23 @@ namespace Smartboard.UI.Views
             this.textEditPage.Text = this.Page.PageNo.ToString();
 
             this.PageId = this.Page.PageNo;
+
+            // set transparent picture box
+            // this.SetTransparentPictureBox();
+        }
+
+        private void SetTransparentPictureBox()
+        {
+            //Point location = new Point();
+            //PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+            //location.Y = this.pictureEditPage.Location.Y;
+            //location.X = viewInfo.PictureStartX;
+            //this.transparentPictureBoxPage.Location = location;
+            //this.transparentPictureBoxPage.Size = this.pictureEditPage.Image.Size;
+
+            //// set position
+            //this.transparentPictureBoxPage.BringToFront();
+            //this.pictureEditPage.SendToBack();
         }
 
         private void SetPaint()
@@ -389,9 +404,28 @@ namespace Smartboard.UI.Views
             this.paintMode = false;
         }
 
-        private void DoAddNoteCrop()
+        private Bitmap CropPage()
         {
-            
+            int x = this.addNoteRect.X;
+            int y = this.addNoteRect.Y;
+
+            PictureEditViewInfo viewInfo = this.pictureEditPage.GetViewInfo() as PictureEditViewInfo;
+            PropertyInfo pr = viewInfo.GetType().GetProperty("HScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+            int fHScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+            pr = viewInfo.GetType().GetProperty("VScrollBarPosition", BindingFlags.Instance | BindingFlags.NonPublic);
+            int fVScrollBarPosition = (int)pr.GetValue(viewInfo, null);
+
+            x += fHScrollBarPosition - viewInfo.PictureStartX;
+            y += fVScrollBarPosition;
+
+            Bitmap src = this.pictureEditPage.Image as Bitmap;
+
+
+            cropped = new Bitmap(this.addNoteRect.Width, this.addNoteRect.Height);
+
+            Rectangle r = new Rectangle(x, y, this.addNoteRect.Width, this.addNoteRect.Height);
+            cropped = src.Clone(r, src.PixelFormat);
+            return cropped;
         }
 
         #endregion

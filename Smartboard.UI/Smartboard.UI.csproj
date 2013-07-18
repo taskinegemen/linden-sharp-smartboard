@@ -98,6 +98,9 @@
     <Compile Include="ToolBoxItems\PaintMenu\PaintMenu.Designer.cs">
       <DependentUpon>PaintMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToolBoxItems\TransparentPictureBox\TransparentPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Views\BookView.cs">
       <SubType>Form</SubType>
     </Compile>
